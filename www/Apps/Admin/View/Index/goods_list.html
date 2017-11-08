@@ -30,9 +30,6 @@
           <!--  <th>介绍</th>-->
            <!-- <th>缩略图</th>-->
             <th>明细</th>
-            <th>价格</th>
-            <th>剩余积分兑换数量</th>
-            <th>剩余免费兑换数量</th>
             <!--<th>有效期</th>-->
             <th>分类</th>
             <th>上架</th>
@@ -46,9 +43,6 @@
                 <!--<td>{$vo.g_desc}</td>-->
               <!--  <td><img src="__IMG__/goods/{$vo.g_thum}" width="30px"></td>-->
                 <td>{$vo.g_desc|msubstr=0,8}</td>
-                <td>{$vo.g_price}</td>
-                <td>{$vo.g_count}</td>
-                <td>{$vo.g_free}</td>
                <!-- <td>{$vo.g_term}</td>-->
                 <td>{$type[$vo['g_type']-1]}</td>
                 <td align="center">
