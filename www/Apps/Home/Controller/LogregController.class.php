@@ -2,12 +2,12 @@
 namespace Home\Controller;
 use Think\Controller;
 header("content-type:text/html;charset=utf-8");
-include('D:\ptdata2945\libs\wx_class_4_client.php');
+
 class LogregController extends Controller {
 	public function _initialize(){
-		$wx = new \WX_LC('_3146','wx91660942fa7be4c2');
-		$wx_config=json_encode($wx->getSharedConfig());
-		$this->assign('wx_config',"var wx_config=$wx_config;");
+//		$wx = new \WX_LC('_3146','wx91660942fa7be4c2');
+//		$wx_config=json_encode($wx->getSharedConfig());
+//		$this->assign('wx_config',"var wx_config=$wx_config;");
 	}
 	public function verification(){
 		ob_clean();
@@ -29,13 +29,24 @@ class LogregController extends Controller {
 	public function register(){
 		$this->display();
 	}
+
+	/**
+	 * 获取手机验证码
+	 */
 	public function get_code(){
 		$code = str_pad(rand(0,999999),6,0);
 		session('3146_msg_code',$code);
 		session('3146_msg_time',time()+5*60);
-		M('log')->add(['l_type'=>2,'l_event'=>1,'l_uId'=>session('3146_uid'),'l_value'=>$code,'l_updated'=>time()]);
+// 		M('log')->add(['l_type'=>2,'l_event'=>1,'l_uId'=>session('3146_uid'),'l_value'=>$code,'l_updated'=>time()]);
+		//短信接口
+
+
 		$this->ajaxReturn(['msg'=>$code,'res'=>1,'data'=>true]);
 	}
+
+	/**
+	 * 登录注册
+	 */
 	public function register_save(){
 		if($_POST['card'] == '' || $_POST['user'] == '' || $_POST['phone'] == ''){
 			$this->ajaxReturn(['msg'=>'请填写必要信息!','res'=>101,'data'=>false]);
@@ -51,16 +62,28 @@ class LogregController extends Controller {
 			'u_phone' => $_POST['phone']
 		];
 		$check = M('user')->where($map)->find();
+		//存在则登录
 		if($check){
-			$this->ajaxReturn(['msg'=>'重复的银行卡或电话!','res'=>2,'data'=>false]);
+// 			$this->ajaxReturn(['msg'=>'重复的银行卡或电话!','res'=>2,'data'=>false]);
+			session('3146_uid',$check['u_id']);
+			$this->ajaxReturn(['msg'=>'登录成功','res'=>1,'data'=>true]);
 		}
-		$res = M('user')->where(['u_id'=>session('3146_uid')])->save(['u_cardno'=>$_POST['card'],'u_name'=>$_POST['user'],'u_phone'=>$_POST['phone'],]);
+		//不存在则注册
+		$user = array();
+		$user['u_nick'] = $_POST['phone'];
+		$user['u_name'] = $_POST['phone'];
+		$user['u_phone'] = $_POST['phone'];
+		$user['u_create'] = time();
+		$user['u_update'] = time();
+		$res = M('user')->add($user);
+// 		$res = M('user')->where(['u_id'=>session('3146_uid')])->save(['u_cardno'=>$_POST['card'],'u_name'=>$_POST['user'],'u_phone'=>$_POST['phone'],]);
 		if(!$res){
 			$this->ajaxReturn(['msg'=>'网络超时!','res'=>-1,'data'=>false]);
 		}
+		session('3146_uid',$res);
 		$this->ajaxReturn(['msg'=>'注册成功','res'=>1,'data'=>true]);
 	}
 	public function logout(){
-	    session('3146_uid',null);
+		session('3146_uid',null);
 	}
 }

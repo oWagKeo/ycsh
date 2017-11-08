@@ -10,22 +10,22 @@
     <meta name="MobileOptimized" content="320">
     <title>邮储电子银行—场景宝</title>
     <script>
-        var __url__ = '/31462/index.php/Home/Index';
-        var __img__ = '/31462/Public/img';
-        var __js__ = '/31462/Public/js';
-        var __css__ = '/31462/Public/css';
-        var __module__ = '/31462/index.php/Home';
+        var __url__ = '/index.php/Home/Index';
+        var __img__ = '/Public/img';
+        var __js__ = '/Public/js';
+        var __css__ = '/Public/css';
+        var __module__ = '/index.php/Home';
     </script>
-    <script src="/31462/Public/js/jquery.js"></script>
-    <script src="/31462/Public/js/SuperSlide.js"></script>
-    <link href="/31462/Public/css/style.css?v1.12" rel="stylesheet">
-    <link href="/31462/Public/css/index.css" rel="stylesheet">
+    <script src="/Public/js/jquery.js"></script>
+    <script src="/Public/js/SuperSlide.js"></script>
+    <link href="/Public/css/style.css?v1.12" rel="stylesheet">
+    <link href="/Public/css/index.css" rel="stylesheet">
 </head>
 <body>
 <div class="divCss" id="listPage" style="background: #f1f1f1">
-    <?php if($_GET['type']): ?><div class="top" onclick="window.location.href='/31462/index.php/Home/Index/goods_list/type/<?php echo ($_GET["type"]); ?>/pageId/2'"><?php echo ($info["g_name"]); ?></div>
+    <?php if($_GET['type']): ?><div class="top" onclick="window.location.href='/index.php/Home/Index/goods_list/type/<?php echo ($_GET["type"]); ?>/pageId/2'"><?php echo ($info["g_name"]); ?></div>
     <?php else: ?>
-        <div class="top" onclick="window.location.href='/31462/index.php/Home/Index/index'"><?php echo ($info["g_name"]); ?></div><?php endif; ?>
+        <div class="top" onclick="window.location.href='/index.php/Home/Index/index'"><?php echo ($info["g_name"]); ?></div><?php endif; ?>
     <div class="topBanner">
         <img src="<?php echo ($info["g_thum"]); ?>">
     </div>
@@ -74,30 +74,10 @@
     </div>
 </div>
 </body>
-<script src="/31462/Public/js/Tool.js"></script>
-<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-<script type="text/javascript">
-    <?php echo ($wx_config); ?>
+<script src="/Public/js/Tool.js"></script>
 
-
-    var shareData={
-        link:"http://wx91660942fa7be4c2.wx1.cdh5.cn/3146/index.php",
-        desc:"为您度身定制的线上刚性礼券供应&兑换平台，各种优惠劵、大礼包等你领哦",
-        imgUrl:"http://wx91660942fa7be4c2.wx1.cdh5.cn/"+"/31462/Public/img/logo.png?v1.3",
-        title:"邮储电子银行—场景宝"
-    };
-</script>
 <script>
     (function() {
-        if (typeof WeixinJSBridge == "object" && typeof WeixinJSBridge.invoke == "function") {
-            handleFontSize();
-        } else {
-            if (document.addEventListener) {
-                document.addEventListener("WeixinJSBridgeReady", handleFontSize, false);
-            } else if (document.attachEvent) {
-                document.attachEvent("WeixinJSBridgeReady", handleFontSize);
-                document.attachEvent("onWeixinJSBridgeReady", handleFontSize);  }
-        }
         function handleFontSize() {
             // 设置网页字体为默认大小
             WeixinJSBridge.invoke('setFontSizeCallback', { 'fontSize' : 0 });
@@ -110,7 +90,7 @@
 
 
 </script>
-<script src="/31462/Public/js/gameE_min.js"></script>
-<script src="/31462/Public/js/Game.js"></script>
+<script src="/Public/js/gameE_min.js"></script>
+<script src="/Public/js/Game.js?v1.12"></script>
 
 </html>

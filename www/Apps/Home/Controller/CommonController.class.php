@@ -5,7 +5,10 @@ header("content-type:text/html;charset=utf-8");
 
 class CommonController extends Controller {
     public function _initialize(){
-      
+        //判断登录状态
+        if( !session('3146_uid') ){
+            $this->redirect('Logreg/register');
+        }
         $nav = ['话费','流量','视频','小说','游戏','电商购物','出行','家政美业','电影演出','餐饮外卖','直播娱乐'];
         $this->assign('nav',$nav);
 

@@ -34,29 +34,9 @@
 </div>
 </body>
 <script src="__JS__/Tool.js"></script>
-<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-<script type="text/javascript">
-    {$wx_config}
 
-
-    var shareData={
-        link:"http://wx91660942fa7be4c2.wx1.cdh5.cn/test/31461/index.php/Home/Logreg/tips",
-        desc:"为您度身定制的线上刚性礼券供应&兑换平台，各种优惠劵、大礼包等你领哦",
-        imgUrl:"http://wx91660942fa7be4c2.wx1.cdh5.cn/"+"__IMG__/logo.png?v1.3",
-        title:"邮储电子银行—场景宝"
-    };
-</script>
 <script>
     (function() {
-        if (typeof WeixinJSBridge == "object" && typeof WeixinJSBridge.invoke == "function") {
-            handleFontSize();
-        } else {
-            if (document.addEventListener) {
-                document.addEventListener("WeixinJSBridgeReady", handleFontSize, false);
-            } else if (document.attachEvent) {
-                document.attachEvent("WeixinJSBridgeReady", handleFontSize);
-                document.attachEvent("onWeixinJSBridgeReady", handleFontSize);  }
-        }
         function handleFontSize() {
             // 设置网页字体为默认大小
             WeixinJSBridge.invoke('setFontSizeCallback', { 'fontSize' : 0 });

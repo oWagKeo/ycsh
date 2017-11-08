@@ -10,40 +10,40 @@
     <meta name="MobileOptimized" content="320">
     <title>邮储电子银行—场景宝</title>
     <script>
-        var __url__ = '/31461/index.php/Home/Index';
-        var __img__ = '/31461/Public/img';
-        var __js__ = '/31461/Public/js';
-        var __css__ = '/31461/Public/css';
-        var __module__ = '/31461/index.php/Home';
+        var __url__ = '/index.php/Home/Index';
+        var __img__ = '/Public/img';
+        var __js__ = '/Public/js';
+        var __css__ = '/Public/css';
+        var __module__ = '/index.php/Home';
     </script>
-    <script src="/31461/Public/js/jquery.js"></script>
-    <script src="/31461/Public/js/SuperSlide.js"></script>
-    <link href="/31461/Public/css/style.css?v1.12" rel="stylesheet">
-    <link href="/31461/Public/css/index.css" rel="stylesheet">
+    <script src="/Public/js/jquery.js"></script>
+    <script src="/Public/js/SuperSlide.js"></script>
+    <link href="/Public/css/style.css?v1.12" rel="stylesheet">
+    <link href="/Public/css/index.css" rel="stylesheet">
 </head>
 <body>
 <div class="divCss" id="indexPage">
     <div class="banner">
-        <img src="/31461/Public/img/banner.jpg?v1.12">
+        <img src="/Public/img/banner.jpg?v1.12">
         <div class="searchBox">
             <input class="searchName" type="text">
             <div class="searchBtn"></div>
         </div>
-        <div class="phoneBill" onclick="window.location.href='/31461/index.php/Home/Index/goods_list/type/1'">  </div>
-        <div class="flow" onclick="window.location.href='/31461/index.php/Home/Index/goods_list/type/2'">  </div>
-        <div class="video" onclick="window.location.href='/31461/index.php/Home/Index/goods_list/type/3'">  </div>
-        <div class="novel" onclick="window.location.href='/31461/index.php/Home/Index/goods_list/type/4'">  </div>
-        <div class="game" onclick="window.location.href='/31461/index.php/Home/Index/goods_list/type/5'">  </div>
-        <div class="shopping" onclick="window.location.href='/31461/index.php/Home/Index/goods_list/type/6'">  </div>
-        <div class="outing" onclick="window.location.href='/31461/index.php/Home/Index/goods_list/type/7'">  </div>
-        <div class="familyWork" onclick="window.location.href='/31461/index.php/Home/Index/goods_list/type/8'">  </div>
-        <div class="movie" onclick="window.location.href='/31461/index.php/Home/Index/goods_list/type/9'">  </div>
-        <div class="soldOut" onclick="window.location.href='/31461/index.php/Home/Index/goods_list/type/10'">  </div>
-        <div class="seeding" onclick="window.location.href='/31461/index.php/Home/Index/goods_list/type/11'">  </div>
+        <div class="phoneBill" onclick="window.location.href='/index.php/Home/Index/goods_list/type/1'">  </div>
+        <div class="flow" onclick="window.location.href='/index.php/Home/Index/goods_list/type/2'">  </div>
+        <div class="video" onclick="window.location.href='/index.php/Home/Index/goods_list/type/3'">  </div>
+        <div class="novel" onclick="window.location.href='/index.php/Home/Index/goods_list/type/4'">  </div>
+        <div class="game" onclick="window.location.href='/index.php/Home/Index/goods_list/type/5'">  </div>
+        <div class="shopping" onclick="window.location.href='/index.php/Home/Index/goods_list/type/6'">  </div>
+        <div class="outing" onclick="window.location.href='/index.php/Home/Index/goods_list/type/7'">  </div>
+        <div class="familyWork" onclick="window.location.href='/index.php/Home/Index/goods_list/type/8'">  </div>
+        <div class="movie" onclick="window.location.href='/index.php/Home/Index/goods_list/type/9'">  </div>
+        <div class="soldOut" onclick="window.location.href='/index.php/Home/Index/goods_list/type/10'">  </div>
+        <div class="seeding" onclick="window.location.href='/index.php/Home/Index/goods_list/type/11'">  </div>
     </div>
 
     <div class="slide">
-        <img class="titleImg" src="/31461/Public/img/title.png?v1.12">
+        <img class="titleImg" src="/Public/img/title.png?v1.12">
         <div class="slideBox">
             <div class="hd">
 <ul>
@@ -53,28 +53,28 @@
             <div class="bd">
                 <ul class="ul1">
                     <li>
-                        <img src="/31461/Public/img/1_03.jpg?v1.1">
+                        <img src="/Public/img/1_03.jpg?v1.1">
                         <div class="title2"></div>
                     </li>
                     <li>
-                        <img src="/31461/Public/img/1_05.jpg?v1.1">
+                        <img src="/Public/img/1_05.jpg?v1.1">
                         <div class="title2"></div>
                     </li>
                     <li>
-                        <img src="/31461/Public/img/1_07.jpg?v1.1">
+                        <img src="/Public/img/1_07.jpg?v1.1">
                         <div class="title2"></div>
                     </li>
 
                     <li>
-                        <img src="/31461/Public/img/2_03.jpg">
+                        <img src="/Public/img/2_03.jpg">
                         <div class="title2"></div>
                     </li>
                     <li>
-                    <img src="/31461/Public/img/2_05.jpg" onclick="window.location.href='http://wx.cdh5.cn/3150/'">
+                    <img src="/Public/img/2_05.jpg" onclick="window.location.href='http://wx.cdh5.cn/3150/'">
                     <div class="title2"></div>
                 </li>
                     <li>
-                        <img src="/31461/Public/img/2_07.jpg">
+                        <img src="/Public/img/2_07.jpg">
                         <div class="title2"></div>
                     </li>
                 </ul>
@@ -89,7 +89,7 @@
     <div class="list" data-type="0">
         <ul class="ul1">
             <?php if(is_array($info)): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li>
-                    <a href="/31461/index.php/Home/Index/info/gid/<?php echo ($vo["g_id"]); ?>" style="display: block">
+                    <a href="/index.php/Home/Index/info/gid/<?php echo ($vo["g_id"]); ?>" style="display: block">
                     <div class="imgBox">
                         <img src="<?php echo ($vo["g_thum"]); ?>">
                     </div>
@@ -101,7 +101,7 @@
                     </div>
                     <div class="right2">
                         <a href="" class="sold">购买</a>
-                        <a href="/31461/index.php/Home/Index/info/gid/<?php echo ($vo["g_id"]); ?>" class="more" style="font-size: 0.2rem">积分兑换</a>
+                        <a href="/index.php/Home/Index/info/gid/<?php echo ($vo["g_id"]); ?>" class="more" style="font-size: 0.2rem">积分兑换</a>
                     </div>
                     </a>
                 </li><?php endforeach; endif; else: echo "" ;endif; ?>
@@ -115,16 +115,16 @@
     <div class="footer">
     <ul>
         <li class="li1 on">
-            <a href="/31461/index.php/Home/Index/index/pageId/1">  <img src="/31461/Public/img/f_01.jpg" class="img1"><img src="/31461/Public/img/f1_01.jpg" class="img2"></a>
+            <a href="/index.php/Home/Index/index/pageId/1">  <img src="/Public/img/f_01.jpg" class="img1"><img src="/Public/img/f1_01.jpg" class="img2"></a>
         </li>
         <li class="li2">
-            <a href="/31461/index.php/Home/Index/goods_list/type/free/pageId/2/mark/free">  <img src="/31461/Public/img/f_02.jpg" class="img1"><img src="/31461/Public/img/f1_02.jpg" class="img2"></a>
+            <a href="/index.php/Home/Index/goods_list/type/free/pageId/2/mark/free">  <img src="/Public/img/f_02.jpg" class="img1"><img src="/Public/img/f1_02.jpg" class="img2"></a>
         </li>
         <li class="li3">
-            <a href="/31461/index.php/Home/Index/award/pageId/4">  <img src="/31461/Public/img/f_03.jpg" class="img1"><img src="/31461/Public/img/f1_03.jpg" class="img2"></a>
+            <a href="/index.php/Home/Index/award/pageId/4">  <img src="/Public/img/f_03.jpg" class="img1"><img src="/Public/img/f1_03.jpg" class="img2"></a>
         </li>
         <li class="li4">
-            <a href="/31461/index.php/Home/User/user/pageId/3/type/1">  <img src="/31461/Public/img/f_04.jpg" class="img1"><img src="/31461/Public/img/f1_04.jpg" class="img2"></a>
+            <a href="/index.php/Home/User/user/pageId/3/type/1">  <img src="/Public/img/f_04.jpg" class="img1"><img src="/Public/img/f1_04.jpg" class="img2"></a>
         </li>
     </ul>
 </div>
@@ -166,30 +166,10 @@
     </div>
 </div>
 </body>
-<script src="/31461/Public/js/Tool.js"></script>
-<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-<script type="text/javascript">
-    <?php echo ($wx_config); ?>
+<script src="/Public/js/Tool.js"></script>
 
-
-    var shareData={
-        link:"http://wx91660942fa7be4c2.wx1.cdh5.cn/31461/index.php",
-        desc:"为您度身定制的线上刚性礼券供应&兑换平台，各种优惠劵、大礼包等你领哦",
-        imgUrl:"http://wx91660942fa7be4c2.wx1.cdh5.cn/"+"/31461/Public/img/logo.png?v1.3",
-        title:"邮储电子银行—场景宝"
-    };
-</script>
 <script>
     (function() {
-        if (typeof WeixinJSBridge == "object" && typeof WeixinJSBridge.invoke == "function") {
-            handleFontSize();
-        } else {
-            if (document.addEventListener) {
-                document.addEventListener("WeixinJSBridgeReady", handleFontSize, false);
-            } else if (document.attachEvent) {
-                document.attachEvent("WeixinJSBridgeReady", handleFontSize);
-                document.attachEvent("onWeixinJSBridgeReady", handleFontSize);  }
-        }
         function handleFontSize() {
             // 设置网页字体为默认大小
             WeixinJSBridge.invoke('setFontSizeCallback', { 'fontSize' : 0 });
@@ -202,7 +182,7 @@
 
 
 </script>
-<script src="/31461/Public/js/gameE_min.js"></script>
-<script src="/31461/Public/js/Game.js"></script>
+<script src="/Public/js/gameE_min.js"></script>
+<script src="/Public/js/Game.js?v1.12"></script>
 
 </html>
