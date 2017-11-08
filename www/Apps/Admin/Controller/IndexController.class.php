@@ -121,7 +121,7 @@ class IndexController extends CommonController {
 		}
 		$count = M('goods')->where($map)->count('g_id');
 		$Page = new \Think\Page($count);// 实例化分页类
-		$info = M('goods')->where($map)->order('g_id desc')->order('g_type')->limit($Page->firstRow.','.$Page->listRows)->select();
+		$info = M('goods')->where($map)->order('g_type,g_id desc')->limit($Page->firstRow.','.$Page->listRows)->select();
 		$this->assign("page", $Page->show());
 		$this->assign("count",$count);
 		$this->assign("search",$search);
