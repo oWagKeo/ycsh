@@ -1,0 +1,50 @@
+<div class="divCss" id="listPage" style="background: #f1f1f1">
+    <if condition="$_GET['type']">
+        <div class="top" onclick="window.location.href='__URL__/goods_list/type/{$_GET.type}/pageId/2'">{$info.g_name}</div>
+    <else/>
+        <div class="top" onclick="window.location.href='__URL__/index'">{$info.g_name}</div>
+    </if>
+    <div class="topBanner">
+        <img src="{$info.g_thum}">
+    </div>
+
+    <div class="center2">
+        <div class="centerBan1">
+            <if condition="$_GET.mark eq 'free'">
+                <span class="span1">0积分/张</span>
+            <else/>
+                <span class="span1">{$info.g_price}积分/张</span>
+            </if>
+            <span class="span2">{$info.g_desc}</span>
+        </div>
+        <div class="centerBan2">
+            <span class="span3">有效期:    {$info.g_term}</span>
+            <if condition="$_GET.mark eq 'free'">
+                <span class="span4">剩余{$info.g_free}张</span>
+            <else/>
+                <span class="span4">剩余{$info.g_count}张</span>
+            </if>
+        </div>
+        <div class="centerBan3">
+            <if condition="$_GET.mark eq 'free'">
+                <input class="numInput" type="hidden" value="1">
+                <input id="mark" type="hidden" value="{$_GET.mark}">
+            <else/>
+                <input id="mark" type="hidden" value="0">
+                <div class="num2">
+                    兑换<input class="numInput" type="text" placeholder="请输入兑换数量">张
+                </div>
+            </if>
+            <div class="wz">您目前有{$user.score}积分,可以兑换<span>{$user.can}</span>张</div>
+            <div class="exchange" data-id="{$info.g_id}"></div>
+        </div>
+    </div>
+    <div class="center3">
+        <div class="ruleTitle">
+            使用规则
+        </div>
+        <div class="ruleBox">
+            {$info.g_info}
+        </div>
+    </div>
+</div>
