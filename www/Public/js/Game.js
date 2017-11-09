@@ -66,6 +66,7 @@ $(".loginBtn").click(function(){
         alertOverwrite("请完整填写您的信息");
     }else{
         if(isDown){
+            console.log("isDown",isDown)
             $.ajax({
                 type:"Post",
                 url:__url__+"/register_save",

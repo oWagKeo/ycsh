@@ -68,26 +68,26 @@
     font-size: 0.32rem;
     color: #ffffff;
 }
-.name{
-    width: 5.3rem;
-    position: absolute;
-    left: 1.42rem;
-    top:4.54rem;
-    background: none;
-    font-family: 微软雅黑;
-    font-size: 0.32rem;
-    color: #ffffff;
-}
-.phone{
-    width: 3.1rem;
-    position: absolute;
-    left: 1.42rem;
-    top:5.7rem;
-    background: none;
-    font-family: 微软雅黑;
-    font-size: 0.32rem;
-    color: #ffffff;
-}
+/*.name{*/
+    /*width: 5.3rem;*/
+    /*position: absolute;*/
+    /*left: 1.42rem;*/
+    /*top:4.54rem;*/
+    /*background: none;*/
+    /*font-family: 微软雅黑;*/
+    /*font-size: 0.32rem;*/
+    /*color: #ffffff;*/
+/*}*/
+/*.phone{*/
+    /*width: 3.1rem;*/
+    /*position: absolute;*/
+    /*left: 1.42rem;*/
+    /*top:5.7rem;*/
+    /*background: none;*/
+    /*font-family: 微软雅黑;*/
+    /*font-size: 0.32rem;*/
+    /*color: #ffffff;*/
+/*}*/
 
 .getCode{
     width: 2.2rem;
@@ -106,23 +106,23 @@
     align-items: center;
     justify-content: center;
 }
-.code{
-    width: 5.3rem;
-    position: absolute;
-    left: 1.42rem;
-    top:6.66rem;
-    background: none;
-    font-family: 微软雅黑;
-    font-size: 0.32rem;
-    color: #ffffff;
-}
-.loginBtn{
-    position: absolute;
-    left: 0.55rem;
-    top:9.15rem;
-    width:6.4rem;
-    height:0.8rem;
-}
+/*.code{*/
+    /*width: 5.3rem;*/
+    /*position: absolute;*/
+    /*left: 1.42rem;*/
+    /*top:6.66rem;*/
+    /*background: none;*/
+    /*font-family: 微软雅黑;*/
+    /*font-size: 0.32rem;*/
+    /*color: #ffffff;*/
+/*}*/
+/*.loginBtn{*/
+    /*position: absolute;*/
+    /*left: 0.55rem;*/
+    /*top:9.15rem;*/
+    /*width:6.4rem;*/
+    /*height:0.8rem;*/
+/*}*/
 .isDown{
     position: absolute;
     left: 0rem;
