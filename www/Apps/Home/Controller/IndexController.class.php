@@ -24,7 +24,7 @@ class IndexController extends CommonController {
 	}
 
 	/**
-	 * 分类信息
+	 * 分类信息奖券列表
 	 */
 	public function goods_list(){
 		$map = [
@@ -32,11 +32,11 @@ class IndexController extends CommonController {
 			'g_end' => ['gt',time()],
 			'g_show' => 1,
 		];
-		if($_GET['type'] == 'free'){
-			$map['g_free'] = ['neq',0];
-		}else{
+
+		if( $_GET['type'] ){
 			$map['g_type'] = $_GET['type'];
 		}
+
 	    $info = M('goods')->where($map)->limit('0,50')->select();
 		$this->assign('info',$info);
 		$this->assign('mark','list');
@@ -84,38 +84,10 @@ class IndexController extends CommonController {
 	 * 获取优惠劵详情
 	 */
 	public function info(){
-		$uid = session('3146_uid');
+
 		$info = M('goods')->where(['g_id' => $_GET['gid']])->find();
-		//获取我的积分
-		$user['score'] =  M('user')->where(['u_id'=>$uid])->getField('u_score');
-		$check = M('exchange')->where(['e_gid' => $_GET['gid'],'e_uid' => $uid,'e_price' => 0])->find();
-		$can = empty($check) ? 1 : 0;
-		$user['can'] = $_GET['mark'] == 'free' ? $can : floor($user['score']/$info['g_price']);
-		if($info['g_claim'] != -1){
-			//计算已经兑换的数量
-			$exchange = M('exchange')->where(['e_uid'=>$uid,'e_gid'=>$info['g_id']])->count('e_id');
-			$lottery = M('weinner')->where(['uId'=>$uid,'gid'=>$info['g_id']])->count('id');
-			//$user['can'] = $info['g_claim']-$exchange-$lottery;
-			$check = $info['g_claim']-$exchange-$lottery;
-			if($check < $user['can']){
-				$user['can'] = $check;
-			}
-			if($_GET['mark'] == 'free' && $check > 1){
-				$user['can'] = $can;
-			}
-		}
-		if($_GET['mark'] == 'free'){
-			if($user['can'] > $info['g_free']){
-				$user['can'] = $info['g_free'];
-			}
-		}else{
-			if($user['can'] > $info['g_count']){
-				$user['can'] = $info['g_count'];
-			}
-		}
 
 		$this->assign('info',$info);
-		$this->assign('user',$user);
 		$this->display('details');
 	}
 	/**
@@ -125,6 +97,10 @@ class IndexController extends CommonController {
 	public function buy(){
 		//读取用户积分
 		$uid = session('3146_uid');
+
+		if( !$uid ){
+			$this->redirect('Logreg/register');
+		}
 		$user = M('user')->where(['u_id' => $uid])->find();
 		//读取劵价格
 		$goods = M('goods')->where(['g_id' => $_POST['gid']])->find();
@@ -145,44 +121,13 @@ class IndexController extends CommonController {
 			$this->ajaxReturn(['msg'=>'该劵已经下架啦!','res'=>4,'data'=>false]);
 		}
 
-		if($_POST['mark'] != 'free'){
-			$mark = 'g_count';
-			$price = $goods['g_price'];
-			if($goods['g_count'] < $_POST['num']){
-				$this->ajaxReturn(['msg'=>'优惠劵已经抢光啦!','res'=>3,'data'=>false]);
-			}
-
-			if($_POST['num']<1){
-				$this->ajaxReturn(['msg'=>'网络超时!','res'=>-1,'data'=>false]);
-			}
-
-			if($goods['g_price']*$_POST['num'] > $user['u_score']){
-				$this->ajaxReturn(['msg'=>'积分不足!','res'=>2,'data'=>false]);
-			}
-			//扣除用户积分
-			$res = M('user')->where(['u_id' => $uid])->setDec('u_score',$goods['g_price']*$_POST['num']);
-			if(!$res){
-				$this->ajaxReturn(['msg'=>'网络超时!','res'=>-1,'data'=>false]);
-			}
-			$ma = 1;
-		}else{
-			$mark = 'g_free';
-			$price = 0;
-
-			if($_POST['num'] != 1){
-				$this->ajaxReturn(['msg'=>'网络超时!','res'=>-1,'data'=>false]);
-			}
-
-			if($goods['g_free'] < $_POST['num']){
-				$this->ajaxReturn(['msg'=>'优惠劵已经抢光啦!','res'=>3,'data'=>false]);
-			}
-
-			$check = M('exchange')->where(['e_gid' => $_POST['gid'],'e_uid' => $uid,'e_price' => 0])->find();
-			if($check){
-				$this->ajaxReturn(['msg'=>'每种免费卷只能兑换一次哟!','res'=>6,'data'=>false]);
-			}
-			$ma = 2;
+		$mark = 'g_count';
+		$price = $goods['g_price'];
+		if($goods['g_count'] < $_POST['num']){
+			$this->ajaxReturn(['msg'=>'优惠劵已经抢光啦!','res'=>3,'data'=>false]);
 		}
+
+		$ma = 1;
 		//扣除劵库存
 		$res = M('goods')->where(['g_id' => $_POST['gid']])->setDec($mark,$_POST['num']);
 		if(!$res){

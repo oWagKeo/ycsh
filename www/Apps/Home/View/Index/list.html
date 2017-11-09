@@ -9,17 +9,9 @@
     }
 </style>
 <div class="divCss" id="listPage">
-    <if condition="$_GET['type'] eq 'free'">
-        <div class="top_no">
-    <else/>
-        <div class="top" onclick="window.location.href='__URL__/index'">
-    </if>
+    <div class="top" onclick="window.history.back(1)">
     <if condition="$mark eq 'list'">
-        <if condition="$_GET['type'] eq 'free'">
-            派发
-        <else/>
-            {$nav[$_GET['type']-1]}
-        </if>
+        {$nav[$_GET['type']-1]}
     <else/>
         搜索结果
     </if>
@@ -44,7 +36,9 @@
                         </if>
                     </div>
                         <div class="right2">
-                            <div class="more gotBtn">领取</div>
+                            <a href="__URL__/info/gid/{$vo.g_id}">
+                                <div class="more gotBtn">领取</div>
+                            </a>
                         </div>
                     </a>
                 </li>
@@ -52,19 +46,4 @@
         </ul>
     </div>
     <include file="./Apps/Home/View/footer.html" />
-</div>
-
-<div class="zhezhao divcss">
-    <div class="whichCard">
-        <div class="w_closeBox">
-            <div class="w_close"></div>
-        </div>
-        <div class="w_nr">
-
-            <div class="w_title">领奖电话号码</div>
-           <input type="text" class="w_phone" placeholder="请输入您的领奖电话号码">
-            <div class="w_sureBtn">确认</div>
-        </div>
-
-    </div>
 </div>

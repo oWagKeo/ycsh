@@ -176,6 +176,7 @@ class IndexController extends CommonController {
 		$this->assign("type",$this->type);
 		$this->display('goods_info');
 	}
+
 	public function goods_edit_save(){
 		$data = [
 			'g_name' => $_POST['name'],

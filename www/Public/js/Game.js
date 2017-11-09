@@ -101,6 +101,7 @@ $(".cardNum2").blur(function(){
     }
 });
 
+//奖券兑换
 $(".exchange").click(function(){
    if($(".numInput").val()==""){
        alertOverwrite("请输入兑换数量");
@@ -218,12 +219,6 @@ $(".w_ul li").click(function(){
 $(".w_sureBtn").click(function(){
 alertOverwrite("暂未开放 敬请期待!");
 });
-
-$(".gotBtn").click(function(e){
-    e.preventDefault();
-    $(".zhezhao").show();
-});
-
 
 if(pageId){
     if(pageId=="1"){
