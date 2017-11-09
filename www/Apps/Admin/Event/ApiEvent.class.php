@@ -27,6 +27,12 @@ class ApiEvent {
 		curl_close($ch);
 		return $output;
 	}
+
+	/**
+	 * @param $str
+	 * @return string
+	 * 对id进行加密
+	 */
 	private function aes($str){
 		//$str = iconv('utf-8', 'gb2312', $str);
 		$block = mcrypt_get_block_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_ECB);

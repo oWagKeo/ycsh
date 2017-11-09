@@ -48,7 +48,7 @@ class LogregController extends Controller {
 	 * 登录注册
 	 */
 	public function register_save(){
-		if($_POST['card'] == '' || $_POST['user'] == '' || $_POST['phone'] == ''){
+		if( $_POST['phone'] == ''){
 			$this->ajaxReturn(['msg'=>'请填写必要信息!','res'=>101,'data'=>false]);
 		}
 		//验证短信
@@ -57,8 +57,6 @@ class LogregController extends Controller {
 		}
 		//验证唯一
 		$map = [
-			'u_cardno' => $_POST['card'],
-			'_logic' => 'or',
 			'u_phone' => $_POST['phone']
 		];
 		$check = M('user')->where($map)->find();

@@ -105,6 +105,7 @@ class IndexController extends CommonController {
 		//读取劵价格
 		$goods = M('goods')->where(['g_id' => $_POST['gid']])->find();
 
+		//判断是否为限领
 		if($goods['g_claim'] != -1){
 			//计算已经兑换的数量
 			$exchange = M('exchange')->where(['e_uid'=>$uid,'e_gid'=>$goods['g_id']])->count('e_id');
