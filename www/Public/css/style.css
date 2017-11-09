@@ -89,23 +89,23 @@
     /*color: #ffffff;*/
 /*}*/
 
-.getCode{
-    width: 2.2rem;
-    height: 0.8rem;
-    position: absolute;
-    left: 4.74rem;
-    top:5.455rem;
-    background: #fff;
-    font-family: 微软雅黑;
-    font-size: 0.32rem;
-    color: #ff542f;
-    border-radius: 0.4rem;
-    text-align: center;
-    line-height: 0.8rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+/*.getCode{*/
+    /*width: 2.2rem;*/
+    /*height: 0.8rem;*/
+    /*position: absolute;*/
+    /*left: 4.74rem;*/
+    /*top:5.455rem;*/
+    /*background: #fff;*/
+    /*font-family: 微软雅黑;*/
+    /*font-size: 0.32rem;*/
+    /*color: #ff542f;*/
+    /*border-radius: 0.4rem;*/
+    /*text-align: center;*/
+    /*line-height: 0.8rem;*/
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+/*}*/
 /*.code{*/
     /*width: 5.3rem;*/
     /*position: absolute;*/
