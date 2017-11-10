@@ -97,14 +97,16 @@ class IndexController extends CommonController {
 	public function buy(){
 		//读取用户积分
 		$uid = session('3146_uid');
-
 		if( !$uid ){
 			$this->redirect('Logreg/register');
 		}
 		$user = M('user')->where(['u_id' => $uid])->find();
 		//读取劵价格
 		$goods = M('goods')->where(['g_id' => $_POST['gid']])->find();
-
+		//一种劵一次最多领取1张
+		if( $_POST['num'] > 1 ){
+			$this->ajaxReturn(['msg'=>'该劵一天最多兑换1张哦！','res'=>7,'data'=>false]);
+		}
 		//判断是否为限领
 		if($goods['g_claim'] != -1){
 			//计算已经兑换的数量
@@ -114,23 +116,25 @@ class IndexController extends CommonController {
 				$this->ajaxReturn(['msg'=>'该劵最多只能兑奖'.$goods['g_claim'].'张哦!','res'=>7,'data'=>false]);
 			}
 		}
-
+		//查看用户当天是否已经领取
+		$has = M('exchange')->where(array('e_uid'=>$uid,'e_gid'=>$goods['g_id']))->order('e_create desc')->limit(1)->getField('e_create');
+		if( $has ){
+			$time1 = strtotime(date('Y-m-d',$has).' 23:59:59');//当天最大时间
+			if( time()<=$time1 ){
+				$this->ajaxReturn(['msg'=>'您今天已经兑换过了哦,明天再来吧！','res'=>7,'data'=>false]);
+			}
+		}
 		if($_POST['num'] <= 0){
 			$this->ajaxReturn(['msg'=>'最少兑换一张劵哟!','res'=>5,'data'=>false]);
 		}
 		if($goods['g_start'] > time() || $goods['g_end'] < time()){
 			$this->ajaxReturn(['msg'=>'该劵已经下架啦!','res'=>4,'data'=>false]);
 		}
-
-		$mark = 'g_count';
-		$price = $goods['g_price'];
 		if($goods['g_count'] < $_POST['num']){
 			$this->ajaxReturn(['msg'=>'优惠劵已经抢光啦!','res'=>3,'data'=>false]);
 		}
-
-		$ma = 1;
 		//扣除劵库存
-		$res = M('goods')->where(['g_id' => $_POST['gid']])->setDec($mark,$_POST['num']);
+		$res = M('goods')->where(['g_id' => $_POST['gid']])->setDec('g_count',$_POST['num']);
 		if(!$res){
 			$this->ajaxReturn(['msg'=>'网络超时!','res'=>-1,'data'=>false]);
 		}
@@ -145,7 +149,7 @@ class IndexController extends CommonController {
 			$data[$i] = [
 				'e_uid' => $uid,
 				'e_gid' => $_POST['gid'],
-				'e_price' => $price,
+				'e_price' => $goods['g_price'],
 				'e_use' => 0,
 				'e_create' => time(),
 				'e_usetime' => 0,
@@ -155,17 +159,21 @@ class IndexController extends CommonController {
 			];
 		}
 		$res = M('exchange')->addAll($data);
-
 		if(!$res){
 			$this->ajaxReturn(['msg'=>'网络超时!','res'=>-1,'data'=>false]);
 		}
-		$this->ajaxReturn(['msg'=>'兑换成功','res'=>1,'data'=>true,'ma'=>$ma]);
+		$this->ajaxReturn(['msg'=>'兑换成功','res'=>1,'data'=>true,'ma'=>1]);
 	}
+
 	public function award(){
 		$user = M('user')->where(['u_id'=>session('3146_uid')])->find();
 		$this->assign('user',$user);
 		$this->display();
 	}
+
+	/**
+	 * 抽奖
+	 */
 	public function lottery(){
 		$uid = session('3146_uid');
 		$user = M('user')->where('u_id = '.$uid)->find();
