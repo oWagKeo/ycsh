@@ -26,24 +26,23 @@
     <else />
         <tr><td colspan="11" align="right">共有{$count}条数据</td></tr>
         <tr>
+            <th>缩略图</th>
             <th>合作方</th>
-          <!--  <th>介绍</th>-->
-           <!-- <th>缩略图</th>-->
             <th>明细</th>
-            <!--<th>有效期</th>-->
+            <th>有效期</th>
             <th>分类</th>
             <th>上架</th>
             <th>上架时间</th>
+            <th>剩余数量</th>
             <th>编辑</th>
             <th>移除</th>
         </tr>
         <volist name="info" id="vo">
             <tr>
+                <td><img src="{$vo.g_thum}" width="30px"></td>
                 <td>{$vo.g_name}</td>
-                <!--<td>{$vo.g_desc}</td>-->
-              <!--  <td><img src="__IMG__/goods/{$vo.g_thum}" width="30px"></td>-->
                 <td>{$vo.g_desc|msubstr=0,8}</td>
-               <!-- <td>{$vo.g_term}</td>-->
+                <td>{$vo.g_term}</td>
                 <td>{$type[$vo['g_type']-1]}</td>
                 <td align="center">
                     <if condition="$vo.g_show eq 1">
@@ -53,6 +52,7 @@
                     </if>
                 </td>
                 <td align="center">{$vo.g_start|date='Y-m-d H:i',###}~{$vo.g_end|date='Y-m-d H:i',###}</td>
+                <td align="center">{$vo.g_count}</td>
                 <td align="center">
                     <a href="__URL__/goods_edit/gid/{$vo.g_id}" title="编辑"><span class="am-icon-edit am-icon-sm "></span></a>&nbsp;
                 </td><td align="center">
