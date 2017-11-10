@@ -10,9 +10,7 @@ class UserController extends CommonController {
 
         $type = isset($_GET['type']) ? $_GET['type'] : 1;
         if($type == 1){
-            $goods = M('exchange')->join($pr.'goods a on '.$pr.'exchange.e_gid = a.g_id')->order('e_id desc')->where(['e_price'=>['neq',0],'e_uid'=>session('3146_uid')])->select();
-        }elseif($type == 2){
-            $goods = M('exchange')->join($pr.'goods a on '.$pr.'exchange.e_gid = a.g_id')->order('e_id desc')->where(['e_price'=>['eq',0],'e_uid'=>session('3146_uid')])->select();
+            $goods = M('exchange')->join($pr.'goods a on '.$pr.'exchange.e_gid = a.g_id')->order('e_id desc')->where(['e_uid'=>session('3146_uid')])->select();
         }else{
             $goods = M('weinner')->join($pr.'goods a on '.$pr.'weinner.gid = a.g_id')->order('id desc')->where(['uid'=>session('3146_uid')])->select();
         }
