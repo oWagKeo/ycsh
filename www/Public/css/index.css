@@ -14,7 +14,7 @@ a{text-decoration: none;font-style: normal;display: inline-block}
 .inputClass{font-size: 16px;position: absolute;outline: none;background: transparent;border: none;text-align: left;}
 #alertPage{z-index: 101;position: absolute;width: 100%;height: 100%;top: 0;}
 .alert_content{top: 35%;width: 66%;height:30%;left: 17%;background-color: #ffffff;border-radius: 10px;position: absolute}
-#alertInfo{width: 80%;height: 50%;margin: auto;margin-top:15%;font-size: 1.3rem;color: #888888;word-break: break-all;text-align: center}
+/*#alertInfo{width: 80%;height: 50%;margin: auto;margin-top:15%;font-size: 1.3rem;color: #888888;word-break: break-all;text-align: center}*/
 .aler_button{bottom:0px;width: 100%;height: 25%;border-top: 1px solid #666666;display: table;position: absolute}
 .gobutton{width: 30%;height: 100%;text-align: center;font-size: 1.5rem;color: #006ca3;display: table-cell;vertical-align: middle;}
 .loadEffect{width: 50px;height: 50px;position: absolute;margin: -25px 0 0 -25px;top: 50%;left: 50%;}
@@ -34,7 +34,6 @@ a{text-decoration: none;font-style: normal;display: inline-block}
 
 /*弹窗*/
 #alert{display: none;position:fixed;top:0;left:0;width: 100%;height: 100%;z-index: 100;background-color: rgba(0,0,0,0.5);}
-#alertinfo{position: absolute;top: 35%;width:70%; height:3rem;left: 15%;z-index:101;background-color: #ffffff;border-radius: 4px;}
-#contentpage{width:90%;height: 50%; margin-left: 5%;margin-top:10%;font-size: 0.24rem;color: #000000;}
-#buttonpage{position: absolute;bottom:0px;width: 100%;height: 25%;}
-#sureBtn{width: 30%;height: 100%; margin-left: 70%; text-align: center;font-size: 0.24rem;color: #006ca3; vertical-align: middle;}
+#alertinfo{position: absolute;top: 35%;min-height: 30%;width:70%;left: 15%;z-index:101;background-color: #ffffff;border-radius: 4px;}
+#contentpage{font-size: 10px;color: #000000;}
+#sureBtn{text-align: right;  padding-right: 5px;font-size: 12px;color: #e86a18;}
