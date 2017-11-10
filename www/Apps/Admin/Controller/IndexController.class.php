@@ -129,11 +129,20 @@ class IndexController extends CommonController {
 		$this->assign("type",$this->type);
 		$this->display();
 	}
+
+	/**
+	 * 添加优惠券
+	 */
 	public function goods_add(){
 		$this->assign("action",'add');
 		$this->assign("type",$this->type);
+		$this->assign('time',time());
 		$this->display('goods_info');
 	}
+
+	/**
+	 * 添加优惠券
+	 */
 	public function goods_add_save(){
 		$data = [
 			'g_name' => $_POST['name'],
@@ -142,24 +151,30 @@ class IndexController extends CommonController {
 			'g_type' => $_POST['type'],
 			'g_num' => $_POST['count'],
 			'g_count' => $_POST['count'],
-			'g_free' => $_POST['free'],
-			'g_price' => $_POST['price'],
+			'g_free' => 0,
+			'g_price' => 0,
 			'g_show' => $_POST['show'],
 			'g_start' => strtotime($_POST['start']),
 			'g_end' => strtotime($_POST['end']),
 			'g_term' => $_POST['term'],
 			'g_create' => time(),
+			'g_couponid' => $_POST['couponid'],
+			'g_usetype' => 0,
+			'g_claim' => -1
 		];
 		$upload = new \Think\Upload();                   // 实例化上传类
 		$upload->exts       =     array('jpg','png','jpeg');          // 设置附件上传类型
-		$upload->rootPath  =     './Public/img/goods/'; // 设置附件上传根目录
-		$upload->autoSub   =     true;                  //不创建子目录
+		$upload->rootPath   =     './Public/img/goods/'; // 设置附件上传根目录
+		$upload->saveName   =     date('YmdHis').'_'.rand(1000,9999);              //上传文件名
+		$upload->autoSub    =     false;                  //不创建子目录
+		$upload->replace    =     true;                   //重复覆盖
+		$upload->savePath   =      ''; // 设置附件上传（子）目录
 		// 上传文件
 		$info = $upload->upload();
 		if(!$info) {// 上传错误提示错误信息
 			$this->error($upload->getError());
 		}else{// 上传成功
-			$data['g_thum'] = $info['pic']['savepath'].$info['pic']['savename'];
+			$data['g_thum'] = '/Public/img/goods/'.$info['pic']['savename'];
 		}
 		$res = M('goods')->add($data);
 		if($res){
@@ -195,16 +210,17 @@ class IndexController extends CommonController {
 			$upload = new \Think\Upload();                   // 实例化上传类
 			$upload->maxSize   =     2097152*4;               // 设置附件上传大小
 			//$upload->exts       =     array('jpg,png,jpeg');          // 设置附件上传类型
-			$upload->rootPath  =     './Public/upload/'; // 设置附件上传根目录
+			$upload->rootPath  =     './Public/img/goods/'; // 设置附件上传根目录
 			$upload->saveName  =     date('YmdHis').'_'.rand(1000,9999);              //上传文件名
 			$upload->autoSub   =     false;                  //不创建子目录
 			$upload->replace   =     true;                   //重复覆盖
+			$upload->savePath  =      ''; // 设置附件上传（子）目录
 			// 上传文件
 			$info = $upload->upload();
 			if(!$info) {// 上传错误提示错误信息
 				$this->error($upload->getError());
 			}else{// 上传成功
-				$data['g_thum'] =  $info['pic']['savepath'].$info['pic']['savename'];
+				$data['g_thum'] =  '/Public/img/goods/'.$info['pic']['savename'];
 			}
 		}
 		$res = M('goods')->where(['g_id'=>$_POST['id']])->save($data);

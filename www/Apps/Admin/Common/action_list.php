@@ -13,7 +13,7 @@ return [
         'name' => '优惠劵管理',
         'menu' => [
             ['goods_list','优惠劵列表',U('Index/goods_list'),'am-icon-medium'],
-           /* ['goods_add','添加优惠劵',U('Index/goods_add'),'am-icon-plus'],*/
+            ['goods_add','添加优惠劵',U('Index/goods_add'),'am-icon-plus'],
         ]
     ],
     'lottery' => [
