@@ -37,13 +37,5 @@ a{text-decoration: none;font-style: normal;display: inline-block}
 #alertinfo{padding:10px;position: absolute;top: 35%;width:70%;left: 15%;z-index:101;background-color: #ffffff;border-radius: 4px;}
 #contentpage{font-size: 10px;text-align: center;color: #f56508;padding: 10px;}
 #buttonpage{width:100%;}
-#sureBtn{
-    text-align: center;
-    width: 50px;
-    padding: 5px;
-    border-radius: 5px;
-    font-size: 12px;
-    background-color: #e86a18;
-    margin: 0 auto;
-    color: #fff;
+#sureBtn{text-align: center;width: 50px;  padding: 5px 0;  border-radius: 5px;  font-size: 12px;  background-color: #e86a18;  margin: 0 auto;  color: #fff;  cursor: pointer;
 }

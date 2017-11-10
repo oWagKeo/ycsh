@@ -83,11 +83,6 @@
     .input-field {
         position: relative;
     }
-    .input-icon {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-    }
     .form-fields .phone, .code, input[type="text"], input[type="email"], input[type="password"] {
         outline: 0;
         -webkit-box-shadow: none;
@@ -143,10 +138,11 @@
         top: 8px;
         right: 10px;
         color: #f6f6f6;
-        font-size: 12px;
+        font-size: 14px;
         cursor: pointer;
+        line-height: 14px;
     }
-    .icon{
+    .input-icon{
         position: absolute;
         color: #fff;
         top: 10px;
@@ -172,12 +168,12 @@
             <div class="form-fields">
                 <div class="field_caption">手机号</div>
                 <div class="input-field">
-                    <span class="icon"><i class="icon-mobile-phone"></i></span>
+                    <span class="input-icon"><i class="icon-mobile-phone"></i></span>
                     <input class="phone" type="text" placeholder="输入手机号">
                 </div>
                 <div class="field_caption">验证码</div>
                 <div class="input-field">
-                    <span class="icon" style="font-size: 21px;top:12px"><i class="icon-lock"></i></span>
+                    <span class="input-icon" style="font-size: 21px;top:12px"><i class="icon-lock"></i></span>
                     <span class="getCode">获取验证码</span>
                     <input class="code" type="text" placeholder="输入验证码">
                 </div>
