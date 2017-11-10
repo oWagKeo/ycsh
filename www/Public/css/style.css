@@ -348,6 +348,19 @@
     display: block;
     margin-top: 0.3rem;
 }
+.getQuan{
+    width: 1.2rem;
+    height: 0.62rem;
+    border-radius: 0.4rem;
+    border: 1px solid #333;
+    text-align: center;
+    line-height: 0.62rem;
+    font-family: 黑体;
+    font-size: 0.32rem;
+    color: #333333;
+    display: block;
+    margin-top: 0.3rem;
+}
 .footer{
     width: 100%;
     height: 1rem;
@@ -355,6 +368,7 @@
     position: fixed;
     bottom: -1px;
     left: 0;
+    background-color: #f1f1f1;
 }
 .footer ul{
     width: 100%;
@@ -362,6 +376,7 @@
 }
 .footer ul li{
     width: 25%;
+    margin-right: 12.5%;
     float: left;
 }
 .footer ul li img{
@@ -380,6 +395,10 @@
 .footer ul li.on .img2{
     display: block;
 }
+.footer ul li.li4{
+    margin-right: 0;
+}
+
 .top{
     width: 100%;
     height: 0.9rem;
