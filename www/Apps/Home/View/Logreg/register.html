@@ -1,11 +1,11 @@
 <style type="text/css" >
     input:-ms-input-placeholder{
         color: #444;
-        font-size: 0.1rem;
+        font-size: 14px;
     }
     input::-webkit-input-placeholder{
         color: #444;
-        font-size: 0.1rem;
+        font-size: 14px;
     }
     *, *:after, *:before {
         -webkit-box-sizing: border-box;
@@ -27,7 +27,8 @@
     }
     .divCss{
         background: #fff none no-repeat center center;
-        background-image: url("../../../../Public/img/login-backgroung.jpg");
+        background-size:cover;
+        background-image: url("../../../../Public/img/login-backgroung2.jpg");
     }
     input {
         -webkit-appearance: textfield;
@@ -49,7 +50,7 @@
     .form-container{
         width: 100%;
         font-size: 0.3rem;
-        background-color: #fff;
+        /*background-color: #fff;*/
         margin: 0 auto;
         margin-top: 40%;
         -webkit-border-radius: 10px;
@@ -63,7 +64,7 @@
         box-sizing: border-box;
         /* border: solid 1px #ddd; */
         /* box-shadow: 1px 1px 10px; */
-        opacity: 0.9;
+        /*opacity: 0.8;*/
     }
     .form-fields {
         margin: 0 auto;
@@ -74,9 +75,9 @@
         padding-left: 5px;
         text-transform: uppercase;
         font-family: 'Helvetica Neue', helvetica;
-        font-size: 0.1rem;
+        font-size: 12px;
         line-height: 0.22rem;
-        color: #444;
+        color: #fff;
         position: relative;
         margin-bottom: 5px;
         margin-top: 15px;
@@ -86,15 +87,15 @@
     }
     .input-icon {
         position: absolute;
-        top: 15px;
-        left: 15px;
+        top: 10px;
+        left: 10px;
     }
     .form-fields .phone, .code, input[type="text"], input[type="email"], input[type="password"] {
         outline: 0;
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
         box-shadow: none;
-        font: 0.1rem 'Montserrat', sans-serif !important;
+        font: 0.3rem 'Montserrat', sans-serif !important;
         color: #666666;
         -webkit-font-smoothing: antialiased;
         margin: 0 auto;
@@ -107,7 +108,7 @@
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
         border-radius: 5px;
-        height: inherit;
+        height: 45px;
         box-sizing: border-box;
     }
     .form-fields input[type="submit"] {
@@ -138,7 +139,7 @@
     }
     .getCode{
         color: #ff542f;
-        font-size: 0.1rem;
+        font-size: 12px;
         float: right;
         cursor: pointer;
     }
@@ -164,7 +165,6 @@
                     <img class="input-icon" src="../../../../Public/img/form-icon-user.png"/>
                     <input class="phone" type="text" placeholder="输入手机号">
                 </div>
-
                 <div class="field_caption">输入验证码<span class="getCode">获取验证码</span></div>
                 <div class="input-field">
                     <img class="input-icon" src="../../../../Public/img/form-icon-password.png"/>
