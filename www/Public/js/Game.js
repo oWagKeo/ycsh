@@ -45,53 +45,30 @@ $(".getCode").click(function () {
         })
     }
 
-
 });
 
-var isDown="";
-$(".isDownLi1").click(function(){
-    $(this).addClass("on");
-    $(".isDownLi2").removeClass("on");
-    isDown=true;
-});
-$(".isDownLi2").click(function(){
-    $(this).addClass("on");
-    $(".isDownLi1").removeClass("on");
-    isDown=false;
-    alertOverwrite("请跳转应用商店下载邮储手机银行");
-});
-
+//手机登录注册
 $(".loginBtn").click(function(){
-    if($(".cardNum1").val()!=$(".cardNum2").val()||$(".cardNum1").val()==""||$(".name").val()==""||!isMobile.test($(".phone").val())||$(".code").val()==""||isDown==""){
+    if(!isMobile.test($(".phone").val())||$(".code").val()==""){
         alertOverwrite("请完整填写您的信息");
     }else{
-        if(isDown){
-            console.log("isDown",isDown)
-            $.ajax({
-                type:"Post",
-                url:__url__+"/register_save",
-                data:{
-                    phone:$(".phone").val(),
-                    user:$(".name").val(),
-                    card:$(".cardNum1").val(),
-                    code:$(".code").val()
-                },
-                success:function(data){
-                    console.log(data);
-                    if(data.data){
-                        window.location.href=__module__+"/Index/index/pageId/1"
-                    } else {
-                        alertOverwrite(data.msg);
-                    }
-
+        $.ajax({
+            type:"Post",
+            url:__url__+"/register_save",
+            data:{
+                phone:$(".phone").val(),
+                code:$(".code").val()
+            },
+            success:function(data){
+                console.log(data);
+                if(data.data){
+                    window.location.href=__module__+"/Index/index/pageId/1"
+                } else {
+                    alertOverwrite(data.msg);
                 }
-            })
-        }else{
-            alertOverwrite("请跳转应用商店下载邮储手机银行");
-        }
-
+            }
+        })
     }
-
 });
 
 $(".cardNum2").blur(function(){
