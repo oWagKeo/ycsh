@@ -367,7 +367,7 @@
     position: fixed;
     bottom: -1px;
     left: 0;
-    background-color: #f1f1f1;
+    background-color: #fff;
 }
 .footer ul{
     width: 100%;
@@ -642,6 +642,13 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
+}
+.headImg span{
+    position: absolute;
+    font-size: 1.7rem;
+    top: 2px;
+    left: 13px;
+    color: #ec7323;
 }
 .nick{
     width: 4rem;
