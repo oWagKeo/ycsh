@@ -25,6 +25,14 @@
         margin: 0em;
         font: 11px system-ui;
     }
+    #video{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
     .divCss{
         background: #0caf9b;
     }
@@ -149,20 +157,18 @@
         left: 20px;
         font-size: 25px;
     }
+    #background-image{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #0caf9b;
+        display: block;
+        z-index: 2;
+    }
 </style>
 <div class="divCss" id="loginPage" >
-    <!--<img src="__IMG__/login.jpg" style="width: 100%">-->
-    <!--<input class="cardNum1" type="text" placeholder="请输入银行卡号">-->
-    <!--<input class="cardNum2" type="text" placeholder="再次输入银行卡号">-->
-    <!--<input class="name" type="text" placeholder="姓名">-->
-    <!--<input class="phone" type="text" placeholder="输入手机号">-->
-    <!--<div class="getCode">获取验证码</div>-->
-    <!--<input class="code" type="text" placeholder="输入验证码">-->
-    <!--<ul class="isDown">-->
-        <!--<li class="isDownLi1"></li>-->
-        <!--<li class="isDownLi2"></li>-->
-    <!--</ul>-->
-    <!--<div class="loginBtn"></div>-->
     <div id="login-wrap">
         <div class="form-container ">
             <div class="form-fields">
@@ -181,4 +187,17 @@
             </div>
         </div>
     </div>
+    <!--<video id="video" src="//www.dpfile.com/app/activity-10796-enygx6yniwrs/img/vedio.f282fcdc2aef6156cb42dfbd8260c88e.mp4" preload="true" x-webkit-airplay="true" webkit-playsinline="true" playsinline="true" x5-video-player-type="h5" width="100%"></video>-->
 </div>
+  <script>
+  //监听加载状态改变
+  document.onreadystatechange = completeLoading;
+  //加载状态为complete时移除loading效果
+  function completeLoading() {
+    if (document.readyState == "complete") {
+      $("#background-image").animate({
+        "display":"none"
+      },3000).hide(100);
+    }
+  }
+</script>
