@@ -17,7 +17,6 @@
         <div class="soldOut" onclick="window.location.href='__URL__/goods_list/type/10'">  </div>
         <div class="seeding" onclick="window.location.href='__URL__/goods_list/type/11'">  </div>
     </div>
-
     <div class="slide">
         <img class="titleImg" src="__IMG__/title.png?v1.12">
         <div class="slideBox">
@@ -58,10 +57,7 @@
             </div>
         </div>
         <script type="text/javascript"> jQuery(".slideBox").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"left",autoPlay:true,vis:3,scroll:3});</script>
-
     </div>
-
-
     <div class="list" data-type="0">
         <ul class="ul1">
             <volist name="info" id="vo">
@@ -73,24 +69,20 @@
                     <div class="right">
                         <div class="title">{$vo.g_name}</div>
                         <div class="xq">{$vo.g_desc}</div>
-                        <div class="num">剩余{$vo.g_count}张</div>
-                        <div class="score"><span>{$vo.g_price}</span>积分</div>
                     </div>
                     <div class="right2">
                         <a href="__URL__/info/gid/{$vo.g_id}" class="getQuan">领取</a>
-                        <!--<a href="" class="sold">购买</a>-->
-                        <!--<a href="__URL__/info/gid/{$vo.g_id}" class="more" style="font-size: 0.2rem">积分兑换</a>-->
                     </div>
                     </a>
                 </li>
             </volist>
         </ul>
+        <!--<div class="stamp stamp01">-->
+            <!--<div class="par"><p>XXXXXX折扣店</p><sub class="sign">￥</sub><span>50.00</span><sub>优惠券</sub><p>订单满100.00元</p></div>-->
+            <!--<div class="copy">副券<p>2015-08-13<br>2016-08-13</p></div>-->
+            <!--<i></i>-->
+        <!--</div>-->
     </div>
-
-
-
-
-
     <include file="./Apps/Home/View/footer.html" />
 </div>
 <div class="zhezhao divcss">
@@ -99,7 +91,6 @@
             <div class="w_close"></div>
         </div>
         <div class="w_nr">
-
             <div class="w_title">选择支付方式</div>
             <ul class="w_ul">
                 <li>借记卡</li>
@@ -108,6 +99,5 @@
             </ul>
             <div class="w_sureBtn">确认</div>
         </div>
-
     </div>
 </div>
