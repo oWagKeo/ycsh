@@ -7,22 +7,25 @@
  * 短信发送接口
  *
  */
+namespace Org\Util;
 class Sms{
-
-    private $mo;
-    private $con;
-
-    public function __construct( $mobile,$content )
-    {
-        $this->mo = $mobile;
-        $this->con = $content;
-    }
 
     /**
      * 短信发送
      */
-    public function send(){
-
+    public function send($mobile , $content){
+        $user_id = 'CDJS004262'; // 这里填写用户名
+        $pass = 'zm0513@';// 这里填登陆密码
+        $target = "http://sdk2.028lk.com:9880/sdk2/BatchSend2.aspx"; //url
+        $content = mb_convert_encoding($content, "GBK", "auto"); //将内容编码为gbk
+        //替换成自己的测试账号,参数顺序和wenservice对应
+        $post_data = "CorpID=".$user_id."&Pwd=".$pass."&Mobile=".$mobile."&Content=".$content;//参数设置
+        $gets = $this->ihuyi_Post($post_data,$target);//请求凌凯地址，并返回请求结果
+        if ($gets >= 0){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     /**
