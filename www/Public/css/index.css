@@ -69,8 +69,8 @@ a{text-decoration: none;font-style: normal;display: inline-block}
 .stamp .copy p{font-size: 16px;margin-top: 15px;}
 .stamp00{background: #49bfec;background: radial-gradient(rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 5px, #49bfec 5px);background-size: 15px 15px;background-position: 9px 3px;}
 .stamp00:before{background-color: #49bfec;}
-.stamp01{background: #ffffff;background: radial-gradient(rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 5px, #ffffff 5px);background-size: 15px 15px;background-position: 9px 3px;}
-.stamp01:before{background-color: #ffffff;}
+.stamp01{background: #fffeec;background: radial-gradient(rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 5px, #fffeec 5px);background-size: 15px 15px;background-position: 9px 3px;}
+.stamp01:before{background-color: #fffeec;}
 .stamp02{background: #D24161;background: radial-gradient(transparent 0, transparent 5px, #D24161 5px);background-size: 15px 15px;background-position: 9px 3px;}
 .stamp02:before{background-color:#D24161;}
 .stamp03{background: #7EAB1E;background: radial-gradient(transparent 0, transparent 5px, #7EAB1E 5px);background-size: 15px 15px;background-position: 9px 3px;}
