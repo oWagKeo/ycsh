@@ -192,7 +192,7 @@ class IndexController extends CommonController {
 		$lc = json_decode($lotteryConfig['lottery'],true);
 		$rand = rand(1,10000);
 		if($rand > end($lc)['max']){
-			$this->ajaxReturn(['msg'=>'未中奖!','res'=>1,'data'=>true,'awardid'=>0]);
+			$this->ajaxReturn(['msg'=>'未中奖!','res'=>1,'data'=>true,'id'=>0]);
 		}
 		//判断是什么奖品
 		foreach($lc as $k => $v){
@@ -203,17 +203,17 @@ class IndexController extends CommonController {
 		}
 		$award = M('award')->where($map)->find();
 		if(!$award){
-			$this->ajaxReturn(['msg'=>'未中奖!','res'=>1,'data'=>true,'awardid'=>0]);
+			$this->ajaxReturn(['msg'=>'未中奖!','res'=>1,'data'=>true,'id'=>0]);
 		}
 		//计算奖池数量
 		if( $award['num']<1 ){
-			$this->ajaxReturn(['msg'=>'未中奖!','res'=>1,'data'=>true,'awardid'=>0]);
+			$this->ajaxReturn(['msg'=>'未中奖!','res'=>1,'data'=>true,'id'=>0]);
 		}
 		M('award')->where(['id'=>$award['id']])->setDec('num',1);
 		$grab = A('Admin/Api','Event');
 		$code = $grab->getCouponCode($award['awardid']);
 		if(!$code){
-			$this->ajaxReturn(['msg'=>'未中奖!','res'=>1,'data'=>true,'awardid'=>0]);
+			$this->ajaxReturn(['msg'=>'未中奖!','res'=>1,'data'=>true,'id'=>0]);
 		}
 		$data = [
 			'uId' => $uid,
@@ -231,7 +231,7 @@ class IndexController extends CommonController {
 		if($res){
 			$this->ajaxReturn(['msg'=>'恭喜!','res'=>1,'data'=>true,'desc'=>$award['desc'],'id'=>$award['id'],'awardname'=>$award['awardname']]);
 		}else{
-			$this->ajaxReturn(['msg'=>'未中奖!','res'=>1,'data'=>true,'awardid'=>0]);
+			$this->ajaxReturn(['msg'=>'未中奖!','res'=>1,'data'=>true,'id'=>0]);
 		}
 	}
 }
