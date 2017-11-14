@@ -32,11 +32,11 @@
         var imgarr = [];
         <?php for( $i=0;$i<6;$i++ ){
           if( $i==0 ){?>
-              imgarr.push({src:"<?php echo $list[$i]['awardthum1'] ?>", id:"btn2a"});
-              imgarr.push({src:"<?php echo $list[$i]['awardthum2'] ?>", id:"btn2b"});
+              imgarr.push({src:"<?php echo $list[$i]['awardthum2'] ?>", id:"btn2a"});
+              imgarr.push({src:"<?php echo $list[$i]['awardthum1'] ?>", id:"btn2b"});
         <?php  }else{ ?>
-              imgarr.push({src:"<?php echo $list[$i]['awardthum1'] ?>", id:"btn<?php echo $i+4 ?>a"});
-              imgarr.push({src:"<?php echo $list[$i]['awardthum2'] ?>", id:"btn<?php echo $i+4 ?>b"});
+              imgarr.push({src:"<?php echo $list[$i]['awardthum2'] ?>", id:"btn<?php echo $i+4 ?>a"});
+              imgarr.push({src:"<?php echo $list[$i]['awardthum1'] ?>", id:"btn<?php echo $i+4 ?>b"});
         <?php }}?>
         var imgArr =[
             {src:__img__+"/bj3.jpg?v1.1", id:"bj3"},

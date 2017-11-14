@@ -345,6 +345,6 @@ p.nominalBounds = new cjs.Rectangle(0,0,750,1205);
 	this.addChild(this.shape_1,this.shape,this.instance);
 }).prototype = p = new cjs.Container();
 p.nominalBounds = new cjs.Rectangle(226.9,85.9,2620.2,1205);
-
+  console.log('img======', img)
 })(lib = lib||{}, images = images||{}, createjs = createjs||{}, ss = ss||{});
 var lib, images, createjs, ss;
