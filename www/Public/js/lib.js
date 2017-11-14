@@ -71,8 +71,8 @@ p.nominalBounds = new cjs.Rectangle(0,0,168,169);
 p.nominalBounds = new cjs.Rectangle(0,0,168,169);
 
 
-(lib.btn5 = function() {
-	this.initialize(img.btn5);
+(lib.btn5b = function() {
+	this.initialize(img.btn5b);
 }).prototype = p = new cjs.Bitmap();
 p.nominalBounds = new cjs.Rectangle(0,0,168,170);
 
@@ -83,8 +83,8 @@ p.nominalBounds = new cjs.Rectangle(0,0,168,170);
 p.nominalBounds = new cjs.Rectangle(0,0,168,170);
 
 
-(lib.btn6 = function() {
-	this.initialize(img.btn6);
+(lib.btn6b = function() {
+	this.initialize(img.btn6b);
 }).prototype = p = new cjs.Bitmap();
 p.nominalBounds = new cjs.Rectangle(0,0,168,170);
 
@@ -95,8 +95,8 @@ p.nominalBounds = new cjs.Rectangle(0,0,168,170);
 p.nominalBounds = new cjs.Rectangle(0,0,168,170);
 
 
-(lib.btn7 = function() {
-	this.initialize(img.btn7);
+(lib.btn7b = function() {
+	this.initialize(img.btn7b);
 }).prototype = p = new cjs.Bitmap();
 p.nominalBounds = new cjs.Rectangle(0,0,168,170);
 
@@ -107,8 +107,8 @@ p.nominalBounds = new cjs.Rectangle(0,0,168,170);
 p.nominalBounds = new cjs.Rectangle(0,0,168,170);
 
 
-(lib.btn8 = function() {
-	this.initialize(img.btn8);
+(lib.btn8b = function() {
+	this.initialize(img.btn8b);
 }).prototype = p = new cjs.Bitmap();
 p.nominalBounds = new cjs.Rectangle(0,0,168,170);
 
@@ -119,8 +119,8 @@ p.nominalBounds = new cjs.Rectangle(0,0,168,170);
 p.nominalBounds = new cjs.Rectangle(0,0,168,170);
 
 
-(lib.btn9 = function() {
-	this.initialize(img.btn9);
+(lib.btn9b = function() {
+	this.initialize(img.btn9b);
 }).prototype = p = new cjs.Bitmap();
 p.nominalBounds = new cjs.Rectangle(0,0,168,170);
 
@@ -180,7 +180,7 @@ p.nominalBounds = new cjs.Rectangle(-14,11,168,170);
 	this.initialize(mode,startPosition,loop,{});
 
 	// 图层 1
-	this.instance = new lib.btn9();
+	this.instance = new lib.btn9b();
 
 	this.instance_1 = new lib.btn9a();
 
@@ -194,7 +194,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,168,170);
 	this.initialize(mode,startPosition,loop,{});
 
 	// 图层 1
-	this.instance = new lib.btn5();
+	this.instance = new lib.btn5b();
 
 	this.instance_1 = new lib.btn5a();
 
@@ -208,7 +208,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,168,170);
 	this.initialize(mode,startPosition,loop,{});
 
 	// 图层 1
-	this.instance = new lib.btn8();
+	this.instance = new lib.btn8b();
 
 	this.instance_1 = new lib.btn8a();
 
@@ -222,7 +222,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,168,170);
 	this.initialize(mode,startPosition,loop,{});
 
 	// 图层 1
-	this.instance = new lib.btn7();
+	this.instance = new lib.btn7b();
 
 	this.instance_1 = new lib.btn7a();
 
@@ -236,7 +236,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,168,170);
 	this.initialize(mode,startPosition,loop,{});
 
 	// 图层 1
-	this.instance = new lib.btn6();
+	this.instance = new lib.btn6b();
 
 	this.instance_1 = new lib.btn6a();
 
