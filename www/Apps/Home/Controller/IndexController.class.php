@@ -164,7 +164,8 @@ class IndexController extends CommonController {
 	public function award(){
 //		layout(false);
 		$user = M('user')->where(['u_id'=>session('3146_uid')])->find();
-		$list =
+		$list = M('award')->select();
+		$this->assign('list',$list);
 		$this->assign('user',$user);
 		$this->display();
 	}
