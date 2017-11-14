@@ -20,9 +20,11 @@ return [
         'icon' => 'am-icon-street-view',
         'name' => '抽奖设置',
         'menu' => [
-            ['award','设置抽奖概率',U('Index/award'),'am-icon-location-arrow'],
-            ['pool','设置奖池',U('Index/pool'),'am-icon-medium'],
-            ['overplus','剩余奖品',U('Index/overplus'),'am-icon-plus'],
+            ['award_list','奖品列表',U('Index/award_list'),'am-icon-medium'],
+            ['award_add','添加奖品',U('Index/award_add'),'am-icon-plus'],
+//            ['award','设置抽奖概率',U('Index/award'),'am-icon-location-arrow'],
+//            ['pool','设置奖池',U('Index/pool'),'am-icon-medium'],
+//            ['overplus','剩余奖品',U('Index/overplus'),'am-icon-plus'],
             ['award_log','中奖纪录',U('Index/award_log'),'am-icon-plus'],
         ]
     ],

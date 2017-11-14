@@ -8,27 +8,7 @@ lib.properties = {
 	height: 400,
 	fps: 24,
 	color: "#FFFFFF",
-	manifest: [
-		{src:__img__+"/bj3.jpg?v1.1", id:"bj3"},
-		{src:__img__+"/btn1.png?v1.1", id:"btn1"},
-		{src:__img__+"/btn1a.png?v1.1", id:"btn1a"},
-		{src:__img__+"/btn2a.png?v1.1", id:"btn2a"},
-		{src:__img__+"/btn2b.png?v1.1", id:"btn2b"},
-		{src:__img__+"/btn3a.png?v1.1", id:"btn3a"},
-		{src:__img__+"/btn3b.png?v1.1", id:"btn3b"},
-		{src:__img__+"/btn4a.png?v1.1", id:"btn4a"},
-		{src:__img__+"/btn4b.png?v1.1", id:"btn4b"},
-		{src:__img__+"/btn5.png?v1.1", id:"btn5"},
-		{src:__img__+"/btn5a.png?v1.1", id:"btn5a"},
-		{src:__img__+"/btn6.png?v1.1", id:"btn6"},
-		{src:__img__+"/btn6a.png?v1.1", id:"btn6a"},
-		{src:__img__+"/btn7.png?v1.1", id:"btn7"},
-		{src:__img__+"/btn7a.png?v1.1", id:"btn7a"},
-		{src:__img__+"/btn8.png?v1.1", id:"btn8"},
-		{src:__img__+"/btn8a.png?v1.1", id:"btn8a"},
-		{src:__img__+"/btn9.png?v1.1", id:"btn9"},
-		{src:__img__+"/btn9a.png?v1.1", id:"btn9a"}
-	]
+	manifest: imgArr
 };
 
 

@@ -69,12 +69,8 @@ class IndexController extends CommonController {
 			'g_end' => ['gt',time()],
 			'g_show' => 1,
 		];
-		if($_POST['type'] != 0){
-			if($_POST['type'] == 'free'){
-				$map['g_free'] = ['neq',0];
-			}else{
-				$map['g_type'] = $_GET['type'];
-			}
+		if( $_GET['type'] ){
+			$map['g_type'] = $_GET['type'];
 		}
 
 		$info = M('goods')->where($map)->limit($top.','.$num)->select();
@@ -166,7 +162,9 @@ class IndexController extends CommonController {
 	}
 
 	public function award(){
+//		layout(false);
 		$user = M('user')->where(['u_id'=>session('3146_uid')])->find();
+		$list =
 		$this->assign('user',$user);
 		$this->display();
 	}
@@ -189,6 +187,7 @@ class IndexController extends CommonController {
 		if($rand > end($lc)['max']){
 			$this->ajaxReturn(['msg'=>'未中奖!','res'=>1,'data'=>true,'awardid'=>0]);
 		}
+		//判断是什么奖品
 		foreach($lc as $k => $v){
 			if($rand > $v['min'] && $rand <= $v['max']){
 				$map['awardid'] = $v['a'];

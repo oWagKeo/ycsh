@@ -230,6 +230,15 @@ class IndexController extends CommonController {
 			$this->error('编辑失败','',1);
 		}
 	}
+
+	public function goods_remove(){
+		$id = M('goods')->where(['g_id'=>$_POST['uid']])->delete();
+		if( $id ){
+			$this->ajaxReturn(['msg'=>'删除成功','state'=>1]);
+		}else{
+			$this->ajaxReturn(['msg'=>'删除失败','state'=>0]);
+		}
+	}
 	/**
 	 * 数据统计
 	 */
@@ -274,6 +283,10 @@ class IndexController extends CommonController {
 		$this->assign("u",json_encode($data_u));
 		$this->display();
 	}
+
+	/**
+	 * 兑换统计
+	 */
 	public function exchange_count(){
 		if(!isset($_GET['start']) || !isset($_GET['end'])){
 			$start = time()-7*86400;
@@ -324,6 +337,10 @@ class IndexController extends CommonController {
 		$this->assign("lottery",json_encode($data_lottery));
 		$this->display();
 	}
+
+	/**
+	 * 兑换比例
+	 */
 	public function exchange_pie(){
 		if(!isset($_GET['start']) || !isset($_GET['end'])){
 			$start = time()-7*86400;
@@ -366,6 +383,10 @@ class IndexController extends CommonController {
 		$this->assign("search",['start'=>$start,'end'=>$end]);
 		$this->display();
 	}
+
+	/**
+	 * 兑换记录
+	 */
 	public function log(){
 		$map['1'] = '1';
 		if(isset($_GET['user']) && $_GET['user'] != ''){
@@ -395,10 +416,166 @@ class IndexController extends CommonController {
 		$this->assign("type",$this->type);
 		$this->display();
 	}
+
+
+	/**
+	 * 抽奖商品列表
+	 */
+	public function award_list(){
+		$list = M('award')->select();
+		$this->assign('list',$list);
+		$this->display();
+	}
+
+	/**
+	 * 添加奖品
+	 */
+	public function award_add(){
+//		$info = M('lottery')->where('id=1')->find();
+//		print_r(json_decode($info['lottery']));die();
+		$this->assign('action','add');
+		$this->display('award_info');
+	}
+
+	public function award_add_save(){
+
+		//判断概率和是否超过10000
+		$sum = M('award')->sum('chance');
+		if( $sum+$_POST['chance']>10000 ){
+			$this->error('概率之和应该小于10000','',1);
+		}
+		$data = array();
+		$data['awardid'] = $_POST['awardid'];
+		$data['awardname'] = $_POST['name'];
+		$data['num'] = $_POST['num'];
+		$data['chance'] = $_POST['chance'];
+
+		$upload = new \Think\Upload();                   // 实例化上传类
+		$upload->exts       =     array('jpg','png','jpeg');          // 设置附件上传类型
+		$upload->rootPath   =     './Public/img/award/'; // 设置附件上传根目录
+		$upload->autoSub    =     false;                  //不创建子目录
+		$upload->replace    =     true;                   //重复覆盖
+		$upload->savePath   =      ''; // 设置附件上传（子）目录
+		// 上传文件
+		$info   =   $upload->upload();
+		if(!$info) {// 上传错误提示错误信息
+			$this->error($upload->getError());
+		}else{
+//			print_r($info);die();
+			for( $i = 0; $i < count($info); $i++ ){
+				$data['awardthum'.($i+1)] = '/Public/img/award/'.$info[$i]['savename'];
+			}
+		}
+		M('award')->startTrans();
+		$list = M('award')->select();
+		$data_arr = [];
+		foreach( $list as $k => $v ){
+			//计算随机数范围
+			if($k == 0){
+				$data_arr[$k]['min'] = 0;
+				$data_arr[$k]['max'] = $v['chance'];
+			}else{
+				$data_arr[$k]['min'] = $data_arr[$k-1]['max'];
+				$data_arr[$k]['max'] = $data_arr[$k-1]['max']+$v['chance'];
+			}
+			$data_arr[$k]['a'] = $k+1;
+			$data_arr[$k]['award'] = $v['awardname'];
+			$data_arr[$k]['b'] = $v['chance'];
+		}
+		$insert = M('award')->add($data);
+		$res = M('lottery')->where('id = 1')->save(['lottery' => json_encode($data_arr)]);
+		if( $insert&&$res ){
+			$this->success('添加成功！','',1);
+			M('award')->commit();
+		}else{
+			$this->error('添加失败！','',1);
+			M('award')->rollback();
+		}
+	}
+
+	/**
+	 * 编辑奖品
+	 */
+	public function award_edit(){
+		$info = M('award')->where(['id'=>$_GET['id']])->find();
+		$this->assign('info',$info);
+		$this->assign('action','edit');
+		$this->display('award_info');
+	}
+	public function award_edit_save(){
+		//判断概率和是否超过10000
+		$where = array();
+		$where['id'] = array('NEQ',$_POST['id']);
+		$sum = M('award')->where($where)->sum('chance');
+		if( $sum+$_POST['chance']>10000 ){
+			$this->error('概率之和应该小于10000','',1);
+		}
+		$data = array();
+		$data['awardid'] = $_POST['awardid'];
+		$data['awardname'] = $_POST['name'];
+		$data['num'] = $_POST['num'];
+		$data['chance'] = $_POST['chance'];
+		if( $_FILES['pic']['name'][0]||$_FILES['pic']['name'][1]){
+			$upload = new \Think\Upload();                   // 实例化上传类
+			$upload->exts = array('jpg', 'png', 'jpeg');          // 设置附件上传类型
+			$upload->rootPath = './Public/img/award/'; // 设置附件上传根目录
+			$upload->autoSub = false;                  //不创建子目录
+			$upload->replace = true;                   //重复覆盖
+			$upload->savePath = ''; // 设置附件上传（子）目录
+			// 上传文件
+			$info = $upload->upload();
+			if (!$info) {// 上传错误提示错误信息
+				$this->error($upload->getError());
+			} else {
+				foreach( $info as $k=>$v ){
+					$data['awardthum'.( $k+1)] = '/Public/img/award/'.$v['savename'];
+				}
+			}
+		}
+		$list = M('award')->select();
+		$data_arr = [];
+		foreach( $list as $k => $v ){
+			//计算随机数范围
+			if($k == 0){
+				$data_arr[$k]['min'] = 0;
+				$data_arr[$k]['max'] = $v['chance'];
+			}else{
+				$data_arr[$k]['min'] = $data_arr[$k-1]['max'];
+				$data_arr[$k]['max'] = $data_arr[$k-1]['max']+$v['chance'];
+			}
+			$data_arr[$k]['a'] = $k+1;
+			$data_arr[$k]['award'] = $v['awardname'];
+			$data_arr[$k]['b'] = $v['chance'];
+		}
+		$res = M('lottery')->where('id = 1')->save(['lottery' => json_encode($data_arr)]);
+		$insert = M('award')->where(['id'=>$_POST['id']])->save($data);
+		if( $insert ){
+			$this->success('编辑成功！','',1);
+		}else{
+			$this->error('编辑失败！','',1);
+		}
+	}
+
+	/**
+	 * 删除奖品
+	 */
+	public function award_remove(){
+		$id = M('award')->where(['id'=>$_POST['uid']])->delete();
+		if( $id ){
+			$this->ajaxReturn(['msg'=>'删除成功！','state'=>1]);
+		}else {
+			$this->ajaxReturn(['msg' => '删除失败！', 'state' => 0]);
+		}
+	}
+
+	/**
+	 * 抽奖
+	 */
 	public function award(){
 		//echo  json_encode($data);
 		$info = M('lottery')->where('id = 1')->getField('lottery');
 		$this->assign('info',json_decode($info,true));
+//		print_r(json_decode($info,true));die();
 		$this->display();
 	}
 	public function award_save(){
