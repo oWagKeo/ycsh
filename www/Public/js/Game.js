@@ -92,7 +92,6 @@ $(".exchange").click(function(){
                mark:$('#mark').val()
            },
            success:function(data){
-               console.log(data);
                if(data.data){
                    window.location.href=__module__+'/User/user/type/'+data.ma;
                }else{
