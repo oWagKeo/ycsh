@@ -449,6 +449,8 @@ class IndexController extends CommonController {
 		$data['awardname'] = $_POST['name'];
 		$data['num'] = $_POST['num'];
 		$data['chance'] = $_POST['chance'];
+		$data['desc'] = $_POST['desc'];
+		$data['awardinfo'] = $_POST['awardinfo'];
 
 		$upload = new \Think\Upload();                   // 实例化上传类
 		$upload->exts       =     array('jpg','png','jpeg');          // 设置附件上传类型
@@ -515,7 +517,9 @@ class IndexController extends CommonController {
 		$data['awardname'] = $_POST['name'];
 		$data['num'] = $_POST['num'];
 		$data['chance'] = $_POST['chance'];
-		if( $_FILES['pic']['name'][0]||$_FILES['pic']['name'][1]){
+		$data['desc'] = $_POST['desc'];
+		$data['awardinfo'] = $_POST['awardinfo'];
+		if( $_FILES['pic']['name'][0]||$_FILES['pic']['name'][1]||$_FILES['pic']['name'][2]){
 			$upload = new \Think\Upload();                   // 实例化上传类
 			$upload->exts = array('jpg', 'png', 'jpeg');          // 设置附件上传类型
 			$upload->rootPath = './Public/img/award/'; // 设置附件上传根目录

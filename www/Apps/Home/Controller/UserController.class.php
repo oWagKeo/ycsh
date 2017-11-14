@@ -12,7 +12,9 @@ class UserController extends CommonController {
         if($type == 1){
             $goods = M('exchange')->join($pr.'goods a on '.$pr.'exchange.e_gid = a.g_id')->order('e_id desc')->where(['e_uid'=>session('3146_uid')])->select();
         }else{
-            $goods = M('weinner')->join($pr.'goods a on '.$pr.'weinner.gid = a.g_id')->order('id desc')->where(['uid'=>session('3146_uid')])->select();
+            $goods = M('weinner as a')->field('a.e_link,a.id,b.awardname,b.awardthum3,b.desc')
+                    ->join($pr.'award as b on a.awardid = b.id')->order('a.id desc')->where(['a.uId'=>session('3146_uid')])->select();
+//            print_r($goods);die();
         }
 
         $this->assign('goods',$goods);
@@ -23,16 +25,21 @@ class UserController extends CommonController {
         $this->display();
     }*/
     public function goods_info(){
-        if($_GET['type'] == 3){
-            $data = M('weinner')->field('e_code,e_password,e_link,gid e_gid')->where(['id' => $_GET['eid']])->find();
-        }else{
-            $data = M('exchange')->where(['e_id' => $_GET['eid']])->find();
-        }
+        $data = M('exchange')->where(['e_id' => $_GET['eid']])->find();
         $info = M('goods')->where(['g_id'=>$data['e_gid']])->find();
         $this->assign('info',$info);
         $this->assign('data',$data);
         $this->display();
     }
+
+    public function award_info(){
+        $data = M('weinner')->field('e_code,e_password,e_link,awardid')->where(['id' => $_GET['id']])->find();
+        $info = M('award')->where(['id'=>$data['awardid']])->find();
+        $this->assign('info',$info);
+        $this->assign('data',$data);
+        $this->display();
+    }
+
     public function help(){
         $info = file_get_contents('help.txt');
         $this->assign('info',$info);
