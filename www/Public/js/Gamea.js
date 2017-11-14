@@ -27,18 +27,16 @@
     };
     function starGame(){
         if(istrans==false){
-            if(parseInt($(".awardTime span").html())<1){
-                alert("你没有次数啦。");
+            if(parseInt($(".awardTime input").val())==0){
+                alertOverwrite("您本周已经抽过奖了，下周再来吧！")
                 return false;
             }
-            $(".awardTime span").html(parseInt($(".awardTime span").html()-1));
             game.btn.gotoAndStop(1);
             for (var i=0;i<8;i++){
                 var j=i+1;
                 var p=eval("game.p"+j);
                 p.gotoAndStop(1);
             }
-
             clearInterval(sh);
             me=2;
             times=0;

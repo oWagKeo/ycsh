@@ -449,6 +449,8 @@ class IndexController extends CommonController {
 		$data['awardname'] = $_POST['name'];
 		$data['num'] = $_POST['num'];
 		$data['chance'] = $_POST['chance'];
+		$data['desc'] = $_POST['desc'];
+		$data['awardinfo'] = $_POST['awardinfo'];
 
 		$upload = new \Think\Upload();                   // 实例化上传类
 		$upload->exts       =     array('jpg','png','jpeg');          // 设置附件上传类型
@@ -467,28 +469,28 @@ class IndexController extends CommonController {
 			}
 		}
 		M('award')->startTrans();
-		$list = M('award')->select();
-		$data_arr = [];
-		foreach( $list as $k => $v ){
-			//计算随机数范围
-			if($k == 0){
-				$data_arr[$k]['min'] = 0;
-				$data_arr[$k]['max'] = $v['chance'];
-			}else{
-				$data_arr[$k]['min'] = $data_arr[$k-1]['max'];
-				$data_arr[$k]['max'] = $data_arr[$k-1]['max']+$v['chance'];
-			}
-			$data_arr[$k]['a'] = $k+1;
-			$data_arr[$k]['award'] = $v['awardname'];
-			$data_arr[$k]['b'] = $v['chance'];
-		}
 		$insert = M('award')->add($data);
-		$res = M('lottery')->where('id = 1')->save(['lottery' => json_encode($data_arr)]);
-		if( $insert&&$res ){
-			$this->success('添加成功！','',1);
+		if( $insert ){
+			$list = M('award')->select();
+			$data_arr = [];
+			foreach( $list as $k => $v ){
+				//计算随机数范围
+				if($k == 0){
+					$data_arr[$k]['min'] = 0;
+					$data_arr[$k]['max'] = $v['chance'];
+				}else{
+					$data_arr[$k]['min'] = $data_arr[$k-1]['max'];
+					$data_arr[$k]['max'] = $data_arr[$k-1]['max']+$v['chance'];
+				}
+				$data_arr[$k]['id'] = $v['id'];
+				$data_arr[$k]['award'] = $v['awardname'];
+				$data_arr[$k]['b'] = $v['chance'];
+			}
+			$res = M('lottery')->where('id = 1')->save(['lottery' => json_encode($data_arr)]);
+			$this->success('添加成功！','award_list',1);
 			M('award')->commit();
 		}else{
-			$this->error('添加失败！','',1);
+			$this->error('添加失败！','award_list',1);
 			M('award')->rollback();
 		}
 	}
@@ -515,7 +517,9 @@ class IndexController extends CommonController {
 		$data['awardname'] = $_POST['name'];
 		$data['num'] = $_POST['num'];
 		$data['chance'] = $_POST['chance'];
-		if( $_FILES['pic']['name'][0]||$_FILES['pic']['name'][1]){
+		$data['desc'] = $_POST['desc'];
+		$data['awardinfo'] = $_POST['awardinfo'];
+		if( $_FILES['pic']['name'][0]||$_FILES['pic']['name'][1]||$_FILES['pic']['name'][2]){
 			$upload = new \Think\Upload();                   // 实例化上传类
 			$upload->exts = array('jpg', 'png', 'jpeg');          // 设置附件上传类型
 			$upload->rootPath = './Public/img/award/'; // 设置附件上传根目录
@@ -532,27 +536,28 @@ class IndexController extends CommonController {
 				}
 			}
 		}
-		$list = M('award')->select();
-		$data_arr = [];
-		foreach( $list as $k => $v ){
-			//计算随机数范围
-			if($k == 0){
-				$data_arr[$k]['min'] = 0;
-				$data_arr[$k]['max'] = $v['chance'];
-			}else{
-				$data_arr[$k]['min'] = $data_arr[$k-1]['max'];
-				$data_arr[$k]['max'] = $data_arr[$k-1]['max']+$v['chance'];
-			}
-			$data_arr[$k]['a'] = $k+1;
-			$data_arr[$k]['award'] = $v['awardname'];
-			$data_arr[$k]['b'] = $v['chance'];
-		}
-		$res = M('lottery')->where('id = 1')->save(['lottery' => json_encode($data_arr)]);
 		$insert = M('award')->where(['id'=>$_POST['id']])->save($data);
 		if( $insert ){
-			$this->success('编辑成功！','',1);
+			$list = M('award')->select();
+			$data_arr = [];
+			foreach( $list as $k => $v ){
+				//计算随机数范围
+				if($k == 0){
+					$data_arr[$k]['min'] = 0;
+					$data_arr[$k]['max'] = $v['chance'];
+				}else{
+					$data_arr[$k]['min'] = $data_arr[$k-1]['max'];
+					$data_arr[$k]['max'] = $data_arr[$k-1]['max']+$v['chance'];
+				}
+				$data_arr[$k]['id'] = $v['id'];
+				$data_arr[$k]['award'] = $v['awardname'];
+				$data_arr[$k]['b'] = $v['chance'];
+			}
+			M('lottery')->where('id = 1')->save(['lottery' => json_encode($data_arr)]);
+
+			$this->success('编辑成功！','award_list',1);
 		}else{
-			$this->error('编辑失败！','',1);
+			$this->error('编辑失败！','award_list',1);
 		}
 	}
 

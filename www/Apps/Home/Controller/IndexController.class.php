@@ -164,13 +164,18 @@ class IndexController extends CommonController {
 	public function award(){
 //		layout(false);
 //		$user = M('user')->where(['u_id'=>session('3146_uid')])->find();
-		$list = M('award')->select();
+		$list = M('award')->order('id asc')->select();
 
 		//是否有资格抽奖
-//		$last = M('log')->where(['u_id'=>session('3146_uid')])->order('l_updated desc')->limit(1)->find();
-//		$week = date('W-w',$last['l_updated']);
-//		print_r($week);die();
-
+		$last = M('log')->where(['u_id'=>session('3146_uid')])->order('l_updated desc')->limit(1)->find();
+		$week = date('W',$last['l_updated']);
+		$now = date('W',time());
+		if( $now==$week ){
+			$has = 0;
+		}else{
+			$has = 1;
+		}
+		$this->assign('haschance',$has);
 		$this->assign('list',$list);
 //		$this->assign('user',$user);
 		$this->display();
@@ -181,11 +186,6 @@ class IndexController extends CommonController {
 	 */
 	public function lottery(){
 		$uid = session('3146_uid');
-		$user = M('user')->where('u_id = '.$uid)->find();
-		if($user['u_lottery'] <= 0){
-			$this->ajaxReturn(['msg'=>'没有抽奖机会啦!','res'=>1,'data'=>false]);
-		}
-		M('user')->where('u_id = '.$uid)->setDec('u_lottery');
 		//抽奖
 		M('log')->add(['l_gId'=>3146,'l_uId'=>$uid,'eventId'=>99,'l_updated'=>time()]);
 		$lotteryConfig = M('lottery')->find();
@@ -197,47 +197,39 @@ class IndexController extends CommonController {
 		//判断是什么奖品
 		foreach($lc as $k => $v){
 			if($rand > $v['min'] && $rand <= $v['max']){
-				$map['awardid'] = $v['a'];
+				$map['id'] = $v['id'];
 				break;
 			}
 		}
-		$map['got'] = 0;
-		$award = M('award')->where($map)->order('id asc')->find();
-
+		$award = M('award')->where($map)->find();
 		if(!$award){
 			$this->ajaxReturn(['msg'=>'未中奖!','res'=>1,'data'=>true,'awardid'=>0]);
 		}
-
-		$goods = M('goods')->where(['g_id' => $award['gid']])->find();
-		if($goods['g_claim'] != -1){
-			//计算已经兑换的数量
-			$exchange = M('exchange')->where(['e_uid'=>$uid,'e_gid'=>$goods['g_id']])->count('e_id');
-			$lottery = M('weinner')->where(['uId'=>$uid,'gid'=>$goods['g_id']])->count('id');
-			if($exchange + $lottery >= $goods['g_claim']){
-				$this->ajaxReturn(['msg'=>'未中奖!','res'=>1,'data'=>true,'awardid'=>0]);
-			}
+		//计算奖池数量
+		if( $award['num']<1 ){
+			$this->ajaxReturn(['msg'=>'未中奖!','res'=>1,'data'=>true,'awardid'=>0]);
 		}
-		M('award')->where(['id'=>$award['id']])->save(['got'=>1]);
+		M('award')->where(['id'=>$award['id']])->setDec('num',1);
 		$grab = A('Admin/Api','Event');
-		$code = $grab->getCouponCode($goods['g_couponid']);
+		$code = $grab->getCouponCode($award['awardid']);
 		if(!$code){
 			$this->ajaxReturn(['msg'=>'未中奖!','res'=>1,'data'=>true,'awardid'=>0]);
 		}
 		$data = [
 			'uId' => $uid,
-			'awardid' => $award['awardid'],
+			'awardid' => $award['id'],
 			'awardname' => $award['awardname'],
 			'got' => 0,
-			'onlyKey' => $award['onlykey'],
+			'onlyKey' => 0,
 			'updated' => time(),
-			'gid' => $award['gid'],
+			'gid' => 0,
 			'e_password' => $code['password'],
 			'e_link' => $code['link'],
 			'e_code' => $code['code'],
 		];
 		$res = M('weinner')->add($data);
 		if($res){
-			$this->ajaxReturn(['msg'=>'恭喜!','res'=>1,'data'=>true,'desc'=>$goods['g_desc'],'awardid'=>$award['awardid'],'awardname'=>$award['awardname']]);
+			$this->ajaxReturn(['msg'=>'恭喜!','res'=>1,'data'=>true,'desc'=>$award['desc'],'id'=>$award['id'],'awardname'=>$award['awardname']]);
 		}else{
 			$this->ajaxReturn(['msg'=>'未中奖!','res'=>1,'data'=>true,'awardid'=>0]);
 		}
