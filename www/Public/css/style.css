@@ -267,19 +267,16 @@
 }
 .right{
     width: 2.5rem;
-    /* height: 2.1rem; */
     overflow: hidden;
-    margin-top: 0.8rem;
+    margin-top: 0.6rem;
+    margin-left: 0.4rem;
     float: left;
+
 }
 .right2{
-    width:1.3rem;
-    height: 2.1rem;
-    overflow: hidden;
-    margin-top: 0.3rem;
-    float: left;
-    margin-left: 0.2rem;
+    margin-top: 5px;
 }
+
 .title{
     width: 100%;
     height: 0.4rem;
@@ -288,7 +285,7 @@
     text-align: left;
     font-family: 黑体;
     font-size: 0.36rem;
-    color: #333333;
+    color: #fff;
 }
 .xq{
     width: 100%;
@@ -298,7 +295,7 @@
     text-align: left;
     font-family: 黑体;
     font-size: 0.28rem;
-    color: #999999;
+    color: #fff;
 }
 .num{
     width: 100%;
@@ -353,10 +350,8 @@
     margin-top: 0.3rem;
 }
 .getQuan{
-    width: 1.2rem;
     height: 0.62rem;
     border-radius: 0.1rem;
-    /*border: 1px solid #333;*/
     text-align: center;
     line-height: 0.62rem;
     font-family: 黑体;
@@ -364,7 +359,6 @@
     background-color: #FF6666;
     color: #fff;
     display: block;
-    margin-top: 0.6rem;
 }
 .footer{
     width: 100%;
