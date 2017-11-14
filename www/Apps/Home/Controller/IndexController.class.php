@@ -163,10 +163,16 @@ class IndexController extends CommonController {
 
 	public function award(){
 //		layout(false);
-		$user = M('user')->where(['u_id'=>session('3146_uid')])->find();
+//		$user = M('user')->where(['u_id'=>session('3146_uid')])->find();
 		$list = M('award')->select();
+
+		//是否有资格抽奖
+//		$last = M('log')->where(['u_id'=>session('3146_uid')])->order('l_updated desc')->limit(1)->find();
+//		$week = date('W-w',$last['l_updated']);
+//		print_r($week);die();
+
 		$this->assign('list',$list);
-		$this->assign('user',$user);
+//		$this->assign('user',$user);
 		$this->display();
 	}
 

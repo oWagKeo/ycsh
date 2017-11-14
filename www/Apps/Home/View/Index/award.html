@@ -24,6 +24,11 @@
 
     </style>
     <script>
+        var imgarr = [];
+        <?php for( $i=0;$i<6;$i++ ){ ?>
+            imgarr.push({src:__img__+"/<?php echo $list[$i]['awardthum1'] ?>", id:"<?php echo $list[$i]['awardthum1'] ?>"});
+            imgarr.push({src:__img__+"/<?php echo $list[$i]['awardthum2'] ?>", id:"<?php echo $list[$i]['awardthum2'] ?>"});
+        <?php }?>
         var imgArr =[
             {src:__img__+"/bj3.jpg?v1.1", id:"bj3"},
             {src:__img__+"/btn1.png?v1.1", id:"btn1"},
