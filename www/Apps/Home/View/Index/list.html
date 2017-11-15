@@ -27,19 +27,8 @@
                     <div class="right">
                         <div class="title">{$vo.g_name}</div>
                         <div class="xq">{$vo.g_desc}</div>
-                        <if condition="$_GET.type neq 'free'">
-                            <div class="num">剩余{$vo.g_count}张</div>
-                            <div class="score"><span>{$vo.g_price}</span>积分</div>
-                        <else/>
-                            <div class="num">剩余{$vo.g_free}张</div>
-                            <div class="score"><span>0</span>积分</div>
-                        </if>
+                        <div class="right2"><a href="__URL__/info/gid/{$vo.g_id}" class="getQuan">立即领取</a></div>
                     </div>
-                        <div class="right2">
-                            <a href="__URL__/info/gid/{$vo.g_id}">
-                                <div class="more gotBtn">领取</div>
-                            </a>
-                        </div>
                     </a>
                 </li>
             </volist>
