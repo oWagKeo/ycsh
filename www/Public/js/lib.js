@@ -11,12 +11,7 @@ lib.properties = {
 	manifest: imgArr
 };
 
-
-
 // symbols:
-
-
-
 (lib.bj3 = function() {
 	this.initialize(img.bj3);
 }).prototype = p = new cjs.Bitmap();

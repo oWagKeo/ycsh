@@ -1,5 +1,5 @@
 <div class="divCss" id="goodsPage" style="background: #f1f1f1">
-    <div class="top" onclick="window.location.href='__MODULE__/User/user/type/{$_GET.type}/pageId/3'">个人中心</div>
+    <div class="top" onclick="window.history.back(1)">个人中心</div>
     <div class="topBanner">
         <img src="{$info.g_thum}">
     </div>
@@ -8,10 +8,6 @@
         <div class="centerBan1">
             <span class="span1">使用条件  </span>
             <span class="span2">{$info.g_desc}</span>
-        </div>
-        <div class="centerBan2">
-            <span class="span3">有效期:   </span>
-            <span class="span4"> {$info.g_term}</span>
         </div>
         <if condition="$data.e_link eq ''">
             <div class="centerBan2">

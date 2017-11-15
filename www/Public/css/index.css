@@ -31,7 +31,6 @@ a{text-decoration: none;font-style: normal;display: inline-block}
 #loadingPage{width: 100%;height: 100%;position: absolute;top: 0;left: 0;z-index: 999;display: none;}
 .containerclass1{transform-origin:0% 0%;transform: rotate(0deg);}
 .containerclass2{transform-origin:0% 0%;transform: rotate(90deg);}
-
 /*弹窗*/
 #alert{display: none;position:fixed;top:0;left:0;width: 100%;height: 100%;z-index: 100;background-color: rgba(0,0,0,0.5);}
 #alertinfo{padding:10px;position: absolute;top: 35%;width:70%;left: 15%;z-index:101;background-color: #ffffff;border-radius: 4px;}
@@ -40,40 +39,20 @@ a{text-decoration: none;font-style: normal;display: inline-block}
 #sureBtn{text-align: center;width: 50px;  padding: 5px 0;  border-radius: 5px;  font-size: 12px;  background-color: #e86a18;  margin: 0 auto;  color: #fff;  cursor: pointer;
 }
 /*首次登陆页面*/
-#background-image{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #0caf9b;
-    display: none;
-    z-index: 2;
-}
-#background-image img{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
+#background-image{position: fixed;top: 0;left: 0;width: 100%;height: 100%;background-color: #0caf9b;display: none;z-index: 2;  }
+#background-image img{width: 100%;height: 100%;object-fit: contain;}
+#jumpLogingImg{position: fixed;font-size: 0.3rem;color: #444;z-index: 2;right: 5px;top: 5px;}
 .stamp {padding: 0 10px;position: relative;overflow: hidden;margin-bottom: 5px;box-shadow: 0 2px 2px 0 rgba(0,0,0,0.07), 0 3px 1px -2px rgba(0,0,0,0.1), 0 1px 5px 0 rgba(0,0,0,0.06);}
-.stamp:before {content: '';position: absolute;top:0;bottom:0;left:10px;right:10px;z-index: -1;}
+.stamp:before {content: '';position: absolute;top:0;bottom:0;left:0.19rem;right:0.19rem;z-index: -1;}
 .stamp:after {content: '';position: absolute;left: 10px;top: 10px;right: 10px;bottom: 10px;box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.5);z-index: -2;}
 .stamp i{position: absolute;left: 20%;top: 45px;height: 190px;width: 390px;background-color: rgba(255,255,255,.15);transform: rotate(-30deg);}
-.stamp .par{float: left;padding: 16px 15px;width: 2.6rem;  height: 1.8rem;border-right:2px dashed rgba(255,255,255,.3);text-align: left;}
-.stamp .par p{color:#fff;}
-.stamp .par span{font-size: 50px;color:#fff;}
-.stamp .par .sign{font-size: 34px;}
-.stamp .par sub{position: relative;top:-5px;color:rgba(255,255,255,.8);margin-bottom: 5px;}
-.stamp .copy{display: inline-block;padding:21px 14px;width:100px;vertical-align: text-bottom;font-size: 30px;color:rgb(255,255,255);}
-.stamp .copy p{font-size: 16px;margin-top: 15px;}
-.stamp00{background: #49bfec;background: radial-gradient(rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 5px, #49bfec 5px);background-size: 15px 15px;background-position: 9px 3px;}
+.stamp00{background: #49bfec;background: radial-gradient(rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 5px, #49bfec 5px);background-size: 18px 18px;background-position: 9px 3px;}
 .stamp00:before{background-color: #49bfec;}
-.stamp01{background: #fffeec;background: radial-gradient(rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 5px, #fffeec 5px);background-size: 15px 15px;background-position: 9px 3px;}
+.stamp01{background: #fffeec;background: radial-gradient(rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 5px, #fffeec 5px);background-size: 18px 18px;background-position: 9px 3px;}
 .stamp01:before{background-color: #fffeec;}
-.stamp02{background: #D24161;background: radial-gradient(transparent 0, transparent 5px, #D24161 5px);background-size: 15px 15px;background-position: 9px 3px;}
+.stamp02{background: #D24161;background: radial-gradient(transparent 0, transparent 5px, #D24161 5px);background-size: 18px 18px;background-position: 9px 3px;}
 .stamp02:before{background-color:#D24161;}
-.stamp03{background: #7EAB1E;background: radial-gradient(transparent 0, transparent 5px, #7EAB1E 5px);background-size: 15px 15px;background-position: 9px 3px;}
+.stamp03{background: #7EAB1E;background: radial-gradient(transparent 0, transparent 5px, #7EAB1E 5px);background-size: 18px 18px;background-position: 9px 3px;}
 .stamp03:before{background-color:#7EAB1E;}
 .stamp04{width: 390px;background: #50ADD3;background: radial-gradient(rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 4px, #50ADD3 4px);background-size: 12px 8px;background-position: -5px 10px;}
 .stamp04:before{background-color:#50ADD3;left: 5px;right: 5px;}

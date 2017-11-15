@@ -44,7 +44,6 @@
             sh = setInterval(star,time_speed);
             award();
             istrans=true;
-
         }
     }
     var nrr;
@@ -58,27 +57,27 @@
                 if(!data){
                     alertOverwrite(data.msg)
                 }else{
-                    if(data.awardid==0){
+                    if(data.id==0){
                         stop=3;
-                    }else if(data.awardid==1){
-                        nrr=data.awardname;
-                        stop=0;
-                    }else if(data.awardid==2){
+                    }else if(data.id==1){
                         nrr=data.awardname;
                         stop=6;
-                    }else if(data.awardid==3){
+                    }else if(data.id==2){
                         nrr=data.awardname;
                         stop=2;
-                    }else if(data.awardid==4){
-                        nrr=data.awardname;
-                        stop=4;
-                    }else if(data.awardid==5){
-                        nrr=data.awardname;
-                        stop=5;
-                    }else if(data.awardid==6){
+                    }else if(data.id==3){
                         nrr=data.awardname;
                         stop=1;
-                    }else if(data.awardid==7){
+                    }else if(data.id==4){
+                        nrr=data.awardname;
+                        stop=8;
+                    }else if(data.id==5){
+                        nrr=data.awardname;
+                        stop=4;
+                    }else if(data.id==6){
+                        nrr=data.awardname;
+                        stop=5;
+                    }else if(data.id==7){
                         nrr=data.awardname;
                         stop=7;
                     }
@@ -86,7 +85,6 @@
             }
         })
     }
-
 
     function star(){
         if(times>=0&&times<=4){
@@ -123,8 +121,6 @@
                         $(".button").show();
                     },1000);
                 }
-
-
             }
         }
 
@@ -145,19 +141,12 @@
         }
         else{
             me=2;
-
         }
     }
-
-
     //gotoandstop() 和 play()
     function onframe(){
         stage.update();
     }
-
-
-
-
 })();
 
 
