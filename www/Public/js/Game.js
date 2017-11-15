@@ -37,10 +37,12 @@ $(".getCode").click(function () {
                 phone:$(".phone").val()
             },
             success:function(data){
-                $('.code').val(data.msg);
-                console.log(data);
-                timer(60);
-                isRun=true;
+                if( data.data ){
+                    //$('.code').val(data.msg);
+                    timer(60);
+                    isRun=true;
+                }
+                alertOverwrite(data.msg);
             }
         })
     }

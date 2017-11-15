@@ -1,5 +1,7 @@
 <?php
 namespace Home\Controller;
+use Org\Util\Sms;
+use Org\Util\Validate;
 use Think\Controller;
 header("content-type:text/html;charset=utf-8");
 
@@ -37,11 +39,14 @@ class LogregController extends Controller {
 		$code = str_pad(rand(0,999999),6,0);
 		session('3146_msg_code',$code);
 		session('3146_msg_time',time()+5*60);
+		$sms = new Sms();
+		$re = $sms->send($_POST['phone'],'您于'.date('Y-m-d H:i').'发送验证码，您的验证码为:'.$code.',验证码5分钟后失效！【场景宝】');
+		if( $re ){
+			$this->ajaxReturn(['msg'=>'发送成功！','res'=>1,'data'=>true]);
+		}else{
+			$this->ajaxReturn(['msg'=>'发送失败！','res'=>1,'data'=>false]);
+		}
 // 		M('log')->add(['l_type'=>2,'l_event'=>1,'l_uId'=>session('3146_uid'),'l_value'=>$code,'l_updated'=>time()]);
-		//短信接口
-
-
-		$this->ajaxReturn(['msg'=>$code,'res'=>1,'data'=>true]);
 	}
 
 	/**
