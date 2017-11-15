@@ -3,7 +3,7 @@ namespace Admin\Controller;
 use Think\Controller;
 header("content-type:text/html;charset=utf-8");
 class IndexController extends CommonController {
-	public $type = ['话费','流量','视频','小说','游戏','电商购物','出行','家政美业','电影演出','餐饮外卖','直播娱乐'];
+	public $type = ['音乐阅读','电商购物','旅游出行','生活服务','视频演出','餐饮外卖',];
 	public function index(){
 		$strTimeToString = "000111222334455556666660";
 		$strWenhou = array('夜深了！','凌晨了！','早上好！','上午好！','中午好！','下午好！','晚上好！');
@@ -501,6 +501,7 @@ class IndexController extends CommonController {
 	public function award_edit(){
 		$info = M('award')->where(['id'=>$_GET['id']])->find();
 		$this->assign('info',$info);
+		$this->assign('nav',$this->nowNav([['抽奖设置'],['奖品列表',U('Index/award_list')],['编辑奖品']]));
 		$this->assign('action','edit');
 		$this->display('award_info');
 	}

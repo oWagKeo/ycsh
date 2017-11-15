@@ -40,7 +40,7 @@ class LogregController extends Controller {
 		session('3146_msg_code',$code);
 		session('3146_msg_time',time()+5*60);
 //		$sms = new Sms();
-//		$re = $sms->send($_POST['phone'],'您于'.date('Y-m-d H:i').'发送验证码，您的验证码为:'.$code.',验证码5分钟后失效！【场景宝】');
+//		$re = $sms->send($_POST['phone'],'您的场景宝验证码为:'.$code.',验证码5分钟之内有效！【邮储成都市分行】');
 //		if( $re ){
 //			$this->ajaxReturn(['msg'=>'发送成功！','res'=>1,'data'=>true]);
 //		}else{
