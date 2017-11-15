@@ -198,6 +198,22 @@
       $("#background-image").animate({
         "display":"none"
       },3000).hide(100);
+      $("#jumpLogingImg").click(function () {
+        $("#background-image").css("display","none");
+      })
+    }
+    var wait = $("#jumpLogingImg .second").html();
+    timeOut();
+    /**
+     * 实现倒计时
+     */
+    function timeOut() {
+      if(wait != 0) {
+        setTimeout(function() {
+          $('#jumpLogingImg .second').text(--wait);
+          timeOut();
+        }, 1000);
+      }
     }
   }
 </script>

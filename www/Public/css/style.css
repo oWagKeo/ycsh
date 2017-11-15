@@ -265,10 +265,17 @@
     height: 1.8rem;
     border-radius: 0.12rem;
 }
-.right{
+.list .right{
     width: 2.5rem;
     overflow: hidden;
     margin-top: 0.6rem;
+    margin-left: 0.4rem;
+    float: left;
+}
+.list2 .right{
+    width: 2.5rem;
+    overflow: hidden;
+    margin-top: 0.8rem;
     margin-left: 0.4rem;
     float: left;
 }
@@ -659,7 +666,7 @@
     color: #fff;
     position: absolute;
     left:2.97rem;
-    top:1rem;
+    top:1.2rem;
 }
 .score2{
     width: 4rem;
@@ -889,7 +896,7 @@
     border-bottom: 1px solid #eaeaea;
 }
 .tabLi{
-    width: 2rem;
+    width: 3rem;
     height: 0.75rem;
     float: left;
     margin-left: 0.3rem;
@@ -900,8 +907,8 @@
     text-align: center;
 }
 .tabLi.on{
-    color: #ff6133;
-    border-bottom: 0.02rem solid #ff6133;
+    color: #0caf9b;
+    border-bottom: 0.02rem solid #0caf9b;
 }
 .tabNav2,.tabNav3{display: none}
 
