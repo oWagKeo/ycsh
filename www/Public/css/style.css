@@ -24,7 +24,8 @@
 .searchBox{
     width:100%;
     height: 0.88rem;
-    background-image: url("../img/top.png");
+    /*background-image: url("../img/top.png");*/
+    background-color: #0caf9b;
     background-size: 100% 100%;
     position: absolute;
     left: 0;
@@ -34,18 +35,27 @@
     width: 3.75rem;
     height: 0.6rem;
     position: absolute;
+    adding-left: 5px;
     left: 1.6rem;
     top: 0.13rem;
-    background: none;
+    background-color: #fff;
+    border-radius: 3.75rem 0 0 3.75rem;
 }
 .searchBtn{
     width: 0.79rem;
     height: 0.6rem;
     position: absolute;
-    right: 1.34rem;
+    right: 1.37rem;
     top: 0.13rem;
+    background-color: #fff;
+    border-radius: 0 0.6rem 0.6rem 0;
 }
-
+.searchBtn .search{
+    width: 60%;
+    position: absolute;
+    top: 3px;
+    right: 7px;
+}
 
 
 .cardNum1{
@@ -176,10 +186,10 @@
 }
 .novel{
     position: absolute;
-    left: 4.56rem;
-    top:1.8rem;
-    width:0.9rem;
-    height: 1.15rem;
+    left: 0.96rem;
+    top: 2.18rem;
+    width: 1.1rem;
+    height: 1.25rem;
 }
 .game{
     position: absolute;
@@ -192,7 +202,7 @@
 
 .shopping{
     position: absolute;
-    left: 2.5rem;
+    left: 2.2rem;
     top: 0.9rem;
     width: 1.12rem;
     height: 1.38rem;
@@ -200,31 +210,31 @@
 
 .outing{
     position: absolute;
-    left: 2.2rem;
-    top: 3.4rem;
-    width:0.9rem;
+    left: 6.1rem;
+    top: 2.2rem;
+    width: 1.1rem;
     height: 1.15rem;
 }
 
 .familyWork{
     position: absolute;
-    left: 6.1rem;
-    top: 2.2rem;
-    width:1.1rem;
+    left: 3.81rem;
+    top: 3.4rem;
+    width: 0.9rem;
     height: 1.15rem;
 }
 .movie{
     position: absolute;
-    left: 0.96rem;
-    top: 2.18rem;
-    width:1.1rem;
-    height: 1.25rem;
+    left: 4.56rem;
+    top: 1.8rem;
+    width: 0.9rem;
+    height: 1.15rem;
 }
 .soldOut{
     position: absolute;
-    left: 3.81rem;
+    left: 2.2rem;
     top: 3.4rem;
-    width:0.9rem;
+    width: 0.9rem;
     height: 1.15rem;
 }
 
