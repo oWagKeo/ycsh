@@ -9,7 +9,7 @@ class CommonController extends Controller {
         if( !session('3146_uid') ){
             $this->redirect('Logreg/register');
         }
-        $nav = ['话费','流量','视频','小说','游戏','电商购物','出行','家政美业','电影演出','餐饮外卖','直播娱乐'];
+        $nav = ['音乐阅读','电商购物','旅游出行','生活服务','视频演出','餐饮外卖',];
         $this->assign('nav',$nav);
 
     }
