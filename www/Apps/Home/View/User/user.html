@@ -1,10 +1,14 @@
 <div class="divCss" id="indexPage">
 <div class="top3">
-    <div class="headImg">
-        <!--<img src="{$info.u_headimg}">-->
-        <span><i class="icon-user"></i></span>
-    </div>
     <div class="nick">{$info.u_nick}</div>
+    <div class="quan">
+        <img src="__IMG__/quan.jpg" height="15px" width="15px"/>
+        <span class="quan-count">{$a_sum}</span>
+    </div>
+    <div class="gift">
+        <img src="__IMG__/gift.jpg" height="15px" width="15px"/>
+        <span class="gift-count">{$g_sum}</span>
+    </div>
 </div>
     <div class="myCoupon">我的优惠券  <img src="__IMG__/help.png" class="help" onclick="window.location.href='__URL__/help/pageId/3'"></div>
     <div class="tabMenu">

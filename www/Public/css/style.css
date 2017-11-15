@@ -675,8 +675,36 @@
     font-size: 0.32rem;
     color: #fff;
     position: absolute;
-    left:2.97rem;
-    top:1.2rem;
+    left: 2.8rem;
+    top: 2.2rem;
+}
+.top3 .gift{
+    position: absolute;
+    left: 4.2rem;
+    top: 2.7rem;
+    font-size: 0;
+}
+.top3 .gift img{
+    width: 0.3rem;
+    margin-right: 5px;
+}
+.top3 .gift-count{
+    font-size: 0.3rem;
+    color: #fff;
+}
+.top3 .quan{
+    position: absolute;
+    left: 2.8rem;
+    top: 2.7rem;
+    font-size: 0;
+}
+.top3 .quan img{
+    width: 0.3rem;
+    margin-right: 5px;
+}
+.top3 .quan-count{
+    font-size: 0.3rem;
+    color: #fff;
 }
 .score2{
     width: 4rem;
