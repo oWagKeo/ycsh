@@ -38,7 +38,7 @@ $(".getCode").click(function () {
             },
             success:function(data){
                 if( data.data ){
-                    //$('.code').val(data.msg);
+                    $('.code').val(data.msg);
                     timer(60);
                     isRun=true;
                 }
