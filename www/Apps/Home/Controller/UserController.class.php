@@ -14,10 +14,13 @@ class UserController extends CommonController {
         }else{
             $goods = M('weinner as a')->field('a.e_link,a.id,b.awardname,b.awardthum3,b.desc')
                     ->join($pr.'award as b on a.awardid = b.id')->order('a.id desc')->where(['a.uId'=>session('3146_uid')])->select();
-//            print_r($goods);die();
         }
 
+        $g_sum = M('exchange')->where(['e_uid'=>session('3146_uid')])->count();
+        $a_sum = M('weinner')->where(['uId'=>session('3146_uid')])->count();
         $this->assign('goods',$goods);
+        $this->assign('g_sum',$g_sum);
+        $this->assign('a_sum',$a_sum);
         $this->display();
     }
  /*   public function my_goods(){
