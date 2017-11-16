@@ -19,7 +19,9 @@
                 <span class="span4"> {$data.e_password}</span>
             </div>
         <else/>
-            <div class="useBtn" onclick="window.location.href='{$data.e_link}'"></div>
+            <!--<div class="useBtn" onclick="window.location.href='{$data.e_link}'"></div>-->
+            <div class="useBtn" data-id='{$data.id}'></div>
+            <input type="hidden" class="typeInput" value="award" />
         </if>
     </div>
 
