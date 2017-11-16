@@ -111,12 +111,11 @@ $(".useBtn").click(function () {
         url:__url__+"/use_goods",
         data:{
             eid:$(this).attr("data-id"),
-            num:$(".numInput").val(),
+            type:$('.typeInput').val()
         },
         success:function(data){
-            console.log(data);
             if(data.data){
-
+                window.location = data.link;
             }else{
                 alertOverwrite(data.msg);
             }

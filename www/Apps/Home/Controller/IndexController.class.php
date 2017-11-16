@@ -216,7 +216,7 @@ class IndexController extends CommonController {
 			$this->ajaxReturn(['msg'=>'未中奖!','res'=>1,'data'=>true,'id'=>0]);
 		}
 		$data = [
-			'uId' => $uid,
+			'uid' => $uid,
 			'awardid' => $award['id'],
 			'awardname' => $award['awardname'],
 			'got' => 0,
