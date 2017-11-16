@@ -8,13 +8,6 @@
         <div class="centerBan1">
             <span class="span2">{$info.g_desc}</span>
         </div>
-        <div class="centerBan2">
-            <if condition="$_GET.mark eq 'free'">
-                <span class="span4">剩余{$info.g_free}张</span>
-            <else/>
-                <span class="span4">剩余{$info.g_count}张</span>
-            </if>
-        </div>
         <div class="centerBan3">
             <input id="mark" type="hidden" value="0">
             <input class="numInput" type="hidden" value="1">

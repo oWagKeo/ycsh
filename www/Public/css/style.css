@@ -11,7 +11,7 @@
     background-repeat: no-repeat;
     -webkit-overflow-scrolling: touch;
 }
-#indexPage,#listPage{ }
+
 .banner{
     width: 100%;
     overflow: hidden;
@@ -64,7 +64,7 @@
     left: 1.42rem;
     top: 2.67rem;
     background: none;
-    font-family: 微软雅黑;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.32rem;
     color: #ffffff;
 }
@@ -74,7 +74,7 @@
     left: 1.42rem;
     top: 3.63rem;
     background: none;
-    font-family: 微软雅黑;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.32rem;
     color: #ffffff;
 }
@@ -84,7 +84,7 @@
     /*left: 1.42rem;*/
     /*top:4.54rem;*/
     /*background: none;*/
-    /*font-family: 微软雅黑;*/
+    /*font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;*/
     /*font-size: 0.32rem;*/
     /*color: #ffffff;*/
 /*}*/
@@ -94,7 +94,7 @@
     /*left: 1.42rem;*/
     /*top:5.7rem;*/
     /*background: none;*/
-    /*font-family: 微软雅黑;*/
+    /*font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;*/
     /*font-size: 0.32rem;*/
     /*color: #ffffff;*/
 /*}*/
@@ -106,7 +106,7 @@
     /*left: 4.74rem;*/
     /*top:5.455rem;*/
     /*background: #fff;*/
-    /*font-family: 微软雅黑;*/
+    /*font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;*/
     /*font-size: 0.32rem;*/
     /*color: #ff542f;*/
     /*border-radius: 0.4rem;*/
@@ -122,7 +122,7 @@
     /*left: 1.42rem;*/
     /*top:6.66rem;*/
     /*background: none;*/
-    /*font-family: 微软雅黑;*/
+    /*font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;*/
     /*font-size: 0.32rem;*/
     /*color: #ffffff;*/
 /*}*/
@@ -264,7 +264,7 @@
 }
 .imgBox{
     width: 2.6rem;
-    height: 1.8rem;
+    height: 1.7rem;
     overflow: hidden;
     border-radius: 0.12rem;
     float: left;
@@ -278,7 +278,7 @@
 .list .right{
     width: 2.5rem;
     overflow: hidden;
-    margin-top: 0.6rem;
+    margin-top: 0.5rem;
     margin-left: 0.4rem;
     float: left;
 }
@@ -299,7 +299,7 @@
     line-height: 0.4rem;
     overflow: hidden;
     text-align: left;
-    font-family: 黑体;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.36rem;
     color: #444;
 }
@@ -309,7 +309,7 @@
     line-height: 0.35rem;
     overflow: hidden;
     text-align: left;
-    font-family: 黑体;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.28rem;
     color: #444;
 }
@@ -319,7 +319,7 @@
     line-height: 0.35rem;
     overflow: hidden;
     text-align: left;
-    font-family: 黑体;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.28rem;
     color: #999999;
     display: flex;
@@ -331,7 +331,7 @@
     line-height: 0.8rem;
     overflow: hidden;
     text-align: left;
-    font-family: 黑体;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.3rem;
     color: #ff512e;
     float: left;
@@ -346,7 +346,7 @@
     border: 1px solid #333;
     text-align: center;
     line-height: 0.62rem;
-    font-family: 黑体;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.32rem;
     color: #333333;
     display: block;
@@ -359,7 +359,7 @@
     border: 1px solid #333;
     text-align: center;
     line-height: 0.62rem;
-    font-family: 黑体;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.32rem;
     color: #333333;
     display: block;
@@ -370,7 +370,7 @@
     border-radius: 0.1rem;
     text-align: center;
     line-height: 0.62rem;
-    font-family: 黑体;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.32rem;
     background-color: #FF6666;
     color: #fff;
@@ -423,7 +423,7 @@
     background-repeat: no-repeat;
     background-position: 0.45rem  center;
     background-size: 0.32rem auto;
-    font-family: 黑体;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.36rem;
     color: #fff;
     text-indent: 1.11rem;
@@ -436,7 +436,7 @@
     background-repeat: no-repeat;
     background-position: 0.45rem  center;
     background-size: 0.32rem auto;
-    font-family: 黑体;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.36rem;
     color: #fff;
     text-align: center;
@@ -451,7 +451,7 @@
     background-repeat: no-repeat;
     background-position: 0.45rem  center;
     background-size: 0.32rem auto;
-    font-family: 黑体;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.36rem;
     color: #fff;
     text-align: center;
@@ -462,7 +462,7 @@
 }
 .list2,.list2 ul{
     width: 100%;
-    height: 10rem;
+    /*height: 10rem;*/
     overflow: hidden;
     overflow-y: scroll;
 }
@@ -521,29 +521,29 @@
 
 }
 .span1{
-    font-family: 黑体;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.4rem;
     color: #ff2b08;
 }
 .span2{
-    font-family: 黑体;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.3rem;
     color: #333333;
 }
 .span3{
-    font-family: 黑体;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.36rem;
     color: #333;
 }
 .span4{
-    font-family: 黑体;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.32rem;
     color: #666;
 }
 .centerBan3{
     width: 7rem;
     height:auto;
-    font-family: 黑体;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.32rem;
     color: #333;
     margin: auto;
@@ -561,7 +561,7 @@
     border: 1px solid #ff8237;
     border-radius: 0.2rem;
     text-align: center;
-    font-family: 黑体;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.32rem;
     color: #333;
     margin: auto 0.1rem;
@@ -569,7 +569,7 @@
 .wz{
     width: 100%;
     text-align: center;
-    font-family: 黑体;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.28rem;
     color: #666;
     line-height: 1rem;
@@ -625,7 +625,7 @@
     height: 0.6rem;
     text-indent: 0.2rem;
     line-height: 0.6rem;
-    font-family: 黑体;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.34rem;
     color: #333;
     border-bottom: 1px solid #0caf9b;
@@ -634,9 +634,9 @@
 .ruleBox{
     width: 6.9rem;
     overflow: hidden;
-    font-family: 黑体;
-    font-size: 0.33rem;
-    color: #384655;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
+    font-size: 0.25rem;
+    color: #666;
     line-height: 0.5rem;
     margin: auto;
 }
@@ -671,7 +671,7 @@
 .nick{
     width: 4rem;
     text-align: left;
-    font-family: 微软雅黑;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.32rem;
     color: #fff;
     position: absolute;
@@ -685,12 +685,18 @@
     font-size: 0;
 }
 .top3 .gift img{
-    width: 0.3rem;
     margin-right: 5px;
+    float: left;
+    font-size: 0;
+    display: inline-block;
+    width: 0.3rem;
 }
 .top3 .gift-count{
     font-size: 0.3rem;
+    float: left;
+    line-height: 0.32rem;
     color: #fff;
+    font-family: "Lato",Arial,sans-serif;
 }
 .top3 .quan{
     position: absolute;
@@ -699,17 +705,23 @@
     font-size: 0;
 }
 .top3 .quan img{
-    width: 0.3rem;
     margin-right: 5px;
+    float: left;
+    font-size: 0;
+    display: inline-block;
+    width: 0.3rem;
 }
 .top3 .quan-count{
     font-size: 0.3rem;
+    float: left;
+    line-height: 0.32rem;
     color: #fff;
+    font-family: "Lato",Arial,sans-serif;
 }
 .score2{
     width: 4rem;
     text-align: left;
-    font-family: 微软雅黑;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.32rem;
     color: #fff;
     position: absolute;
@@ -724,13 +736,13 @@
     text-align: left;
     text-indent: 0.3rem;
     border-bottom: 1px solid #f1f1f1;
-    font-family: 微软雅黑;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.32rem;
     color: #333;
     overflow: hidden;
 }
 .help{
-    width: 0.48rem;
+    width: 0.3rem;
     float: right;
     display: block;
     margin: 0.3rem;
@@ -742,7 +754,7 @@
     text-align: left;
     text-indent: 0.3rem;
     border-bottom: 1px solid #f1f1f1;
-    font-family: 微软雅黑;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.32rem;
     color: #333;
 }
@@ -752,11 +764,11 @@
    min-height: 1.8rem;
 }
 #goodsPage .center2 .span1,#goodsPage .center2 .span3{
-    font-size: 0.32rem;
+    font-size: 0.25rem;
     color: #999999;
 }
 #goodsPage .center2 .span2,#goodsPage .center2 .span4{
-    font-size: 0.36rem;
+    font-size: 0.25rem;
     color: #333333;
 }
 #freePage .topBanner{
@@ -805,7 +817,7 @@
 .awardTime{
     width: 100%;
     text-align: center;
-    font-family: 黑体;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.3rem;
     color: #fff;
     position: absolute;
@@ -818,11 +830,13 @@
 
 .questionBox{
     width: 6.9rem;
-    height: 8.32rem;
+    height: 73%;
     margin:0.2rem auto;
     overflow-y: scroll;
-    border: 1px solid #c4c4c4;
+    border: 1px solid #f6f6f6;
     border-radius: 0.2rem;
+    -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.20);
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.20);
 }
 .questionBox ul{
     width: 100%;
@@ -831,32 +845,50 @@
 .questionBox ul li{
      width:6.4rem;
      overflow: hidden;
-      margin:0.2rem auto auto;
+     margin:0.2rem auto auto;
+     position: relative;
  }
 .ask{
     width: 5.83rem;
     padding-left: 0.6rem;
-    background-image:url("../img/q.png") ;
-    background-size:0.43rem 0.29rem;
-    background-position: left 0.1rem;
-    background-repeat: no-repeat;
-    font-family: 微软雅黑;
-    font-size: 0.32rem;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
+    font-size: 0.32rem!important;
     color: #ff6334;
-    line-height: 0.5rem;
+    line-height: 0.4rem;
+    margin-bottom: 0.1rem;
 }
-
+.ask::before {
+    content: "Q :";
+    color: #ff6b41;
+    position: absolute;
+    font-weight: bold;
+    top: 0;
+    left: 0;
+}
+.ask span{
+    line-height: 0.25rem!important;
+    font-size: 0.25rem!important;
+    font-weight: bold;
+}
+.answer::before {
+    content: "A :";
+    color: #000;
+    position: absolute;
+    font-size: 0.32rem!important;;
+    top: 0;
+    left: 0;
+}
 .answer{
-    width: 5.83rem;
     padding-left: 0.6rem;
-    background-image:url("../img/a.png") ;
-    background-size:0.41rem 0.25rem;
-    background-position: left 0.1rem;
-    background-repeat: no-repeat;
-    font-family: 微软雅黑;
-    font-size: 0.26rem;
-    color: #4a4a4a;
-    line-height: 0.33rem;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
+    font-size: 0.25rem;
+    color: #666;
+    line-height: 0.4rem;
+    position: relative;
+}
+.answer span{
+    line-height: 0.25rem!important;
+    font-size: 0.25rem!important;
 }
 .topimg{
     width: 100%;
@@ -938,7 +970,7 @@
     height: 0.75rem;
     float: left;
     margin-left: 0.3rem;
-    font-family: 黑体;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.32rem;
     color: #333333;
     line-height: 0.78rem;
@@ -1045,7 +1077,6 @@
     width: 5.38rem;
     overflow: hidden;
     margin:2rem auto;
-
 }
 .w_phone{
     border-width: 1px;
@@ -1054,7 +1085,7 @@
     border-radius: 0.1rem;
     width: 4.58rem;
     height:0.78rem;
-    font-family: 黑体;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.36rem;
     color: #999999;
     margin: auto;
@@ -1089,7 +1120,7 @@
     background: #f2f6f9;
     height: 0.9rem;
     line-height: 0.9rem;
-    font-family: 黑体;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.36rem;
     color: #3f5300;
 }
@@ -1106,7 +1137,7 @@
     background: url("../img/ra1.png") no-repeat;
     background-size:0.38rem 0.38rem ;
     background-position: left center;
-    font-family: 黑体;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.32rem;
     color: #3f5300;
     float: left;
@@ -1124,7 +1155,7 @@
     height:0.8rem;
     text-align: center;
     line-height: 0.8rem;
-    font-family: 黑体;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
     font-size: 0.34rem;
     color: #344303;
     border-radius: 0.8rem;

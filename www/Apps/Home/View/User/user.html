@@ -1,13 +1,13 @@
 <div class="divCss" id="indexPage">
 <div class="top3">
-    <div class="nick">{$info.u_nick}</div>
+    <span class="nick">{$info.u_nick}</span>
     <div class="quan">
-        <img src="__IMG__/quan.jpg" height="15px" width="15px"/>
-        <span class="quan-count">{$a_sum}</span>
+        <img src="__IMG__/quan.jpg"/>
+        <span class="quan-count">{$g_sum}</span>
     </div>
     <div class="gift">
-        <img src="__IMG__/gift.jpg" height="15px" width="15px"/>
-        <span class="gift-count">{$g_sum}</span>
+        <img src="__IMG__/gift.jpg"/>
+        <span class="gift-count">{$a_sum}</span>
     </div>
 </div>
     <div class="myCoupon">我的优惠券  <img src="__IMG__/help.png" class="help" onclick="window.location.href='__URL__/help/pageId/3'"></div>
@@ -16,7 +16,6 @@
         <div class="tab3 tabLi" onclick="window.location.href='__URL__/user/pageId/3/type/3'">我的奖品</div>
     </div>
     <div class="list2 tabNav1">
-        <ul>
             <volist name="goods" id="vo">
                 <if condition="$_GET.type eq 3">
                     <div class="stamp stamp01" onclick="window.location.href='__URL__/award_info/id/{$vo.id}'">
@@ -40,7 +39,6 @@
                     </div>
                 </if>
             </volist>
-        </ul>
     </div>
     <include file="./Apps/Home/View/footer.html" />
 </div>
