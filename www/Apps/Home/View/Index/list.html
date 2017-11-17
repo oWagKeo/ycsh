@@ -18,6 +18,9 @@
     </div>
     <div class="list" data-type="{$_GET.type}">
         <ul class="ul1">
+            <if condition="empty($info)">
+                暂无数据
+            <else />
             <volist name="info" id="vo">
                 <li>
                     <a href="__URL__/info/type/{$_GET['type']}/gid/{$vo.g_id}/mark/{$_GET.type}" style="display: block">
@@ -32,6 +35,7 @@
                     </a>
                 </li>
             </volist>
+            </if>
         </ul>
     </div>
     <include file="./Apps/Home/View/footer.html" />
