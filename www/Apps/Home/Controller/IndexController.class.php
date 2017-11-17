@@ -167,7 +167,7 @@ class IndexController extends CommonController {
 		$list = M('award')->order('id asc')->select();
 
 		//是否有资格抽奖
-		$last = M('log')->where(['u_id'=>session('3146_uid')])->order('l_updated desc')->limit(1)->find();
+		$last = M('log')->where(['l_uid'=>session('3146_uid')])->order('l_updated desc')->limit(1)->find();
 		$week = date('W',$last['l_updated']);
 		$now = date('W',time());
 		if( $now==$week ){
@@ -187,7 +187,7 @@ class IndexController extends CommonController {
 	public function lottery(){
 		$uid = session('3146_uid');
 		//抽奖
-		M('log')->add(['l_gId'=>3146,'l_uId'=>$uid,'eventId'=>99,'l_updated'=>time()]);
+		M('log')->add(['l_gid'=>3146,'l_uid'=>$uid,'eventid'=>99,'l_updated'=>time()]);
 		$lotteryConfig = M('lottery')->find();
 		$lc = json_decode($lotteryConfig['lottery'],true);
 		$rand = rand(1,10000);
