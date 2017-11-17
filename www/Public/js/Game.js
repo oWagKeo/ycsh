@@ -95,7 +95,7 @@ $(".exchange").click(function(){
            },
            success:function(data){
                if(data.data){
-                   window.location.href=__module__+'/User/user/type/'+data.ma;
+                   window.location.href=__module__+'/User/user/pageId/3/type/'+data.ma;
                }else{
                    alertOverwrite(data.msg);
                }
