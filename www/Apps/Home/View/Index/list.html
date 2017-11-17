@@ -19,7 +19,7 @@
     <div class="list" data-type="{$_GET.type}">
         <ul class="ul1">
             <if condition="empty($info)">
-                暂无数据
+                <span id="empty">暂无数据</span>
             <else />
             <volist name="info" id="vo">
                 <li>
