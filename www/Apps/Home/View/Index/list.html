@@ -22,7 +22,7 @@
                 <span id="empty">暂无数据</span>
             <else />
             <volist name="info" id="vo">
-                <li>
+                <li onclick="window.location.href='__URL__/info/gid/{$vo.g_id}'">
                     <a href="__URL__/info/type/{$_GET['type']}/gid/{$vo.g_id}/mark/{$_GET.type}" style="display: block">
                     <div class="imgBox">
                         <img src="{$vo.g_thum}">

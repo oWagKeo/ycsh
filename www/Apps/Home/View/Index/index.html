@@ -53,14 +53,13 @@
                         <div class="title2"></div>
                     </li>
                 </ul>
-
             </div>
         </div>
         <script type="text/javascript"> jQuery(".slideBox").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"left",autoPlay:true,vis:3,scroll:3});</script>
     </div>
     <div class="list" data-type="0">
         <volist name="info" id="vo" key="k">
-            <div class="stamp stamp01">
+            <div class="stamp stamp01" onclick="window.location.href='__URL__/info/gid/{$vo.g_id}'">
                 <div class="imgBox">
                     <img src="{$vo.g_thum}">
                 </div>
