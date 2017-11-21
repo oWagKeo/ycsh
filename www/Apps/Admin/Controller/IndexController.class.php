@@ -121,7 +121,7 @@ class IndexController extends CommonController {
 		}
 		$count = M('goods')->where($map)->count('g_id');
 		$Page = new \Think\Page($count);// 实例化分页类
-		$info = M('goods')->where($map)->order('g_type,g_id desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+		$info = M('goods')->where($map)->order('g_id desc')->limit($Page->firstRow.','.$Page->listRows)->select();
 		$this->assign("page", $Page->show());
 		$this->assign("count",$count);
 		$this->assign("search",$search);
@@ -160,7 +160,8 @@ class IndexController extends CommonController {
 			'g_create' => time(),
 			'g_couponid' => $_POST['couponid'],
 			'g_usetype' => 0,
-			'g_claim' => -1
+			'g_claim' => -1,
+			'g_url' => $_POST['g_url']
 		];
 		$upload = new \Think\Upload();                   // 实例化上传类
 		$upload->exts       =     array('jpg','png','jpeg');          // 设置附件上传类型
@@ -205,6 +206,7 @@ class IndexController extends CommonController {
 			'g_start' => strtotime($_POST['start']),
 			'g_end' => strtotime($_POST['end']),
 			'g_term' => $_POST['term'],
+			'g_url' => $_POST['g_url'],
 		];
 		if($_FILES['pic']['name'] != ''){
 			$upload = new \Think\Upload();                   // 实例化上传类
@@ -451,6 +453,7 @@ class IndexController extends CommonController {
 		$data['chance'] = $_POST['chance'];
 		$data['desc'] = $_POST['desc'];
 		$data['awardinfo'] = $_POST['awardinfo'];
+		$data['awardurl'] = $_POST['awardurl'];
 
 		$upload = new \Think\Upload();                   // 实例化上传类
 		$upload->exts       =     array('jpg','png','jpeg');          // 设置附件上传类型

@@ -18,7 +18,7 @@ class IndexController extends CommonController {
 			'g_end' => ['gt',time()],
 			'g_show' => 1,
 		];
-		$info = M('goods')->where($map)->limit('0,50')->select();
+		$info = M('goods')->where($map)->order('g_id desc')->limit('0,50')->select();
 		$this->assign('info',$info);
 		$this->display();
 	}
@@ -134,27 +134,33 @@ class IndexController extends CommonController {
 		if(!$res){
 			$this->ajaxReturn(['msg'=>'网络超时!','res'=>-1,'data'=>false]);
 		}
-		//写入记录
-		//拉取劵的详细信息
-		$grab = A('Admin/Api','Event');
-		for($i = 0;$i<$_POST['num'];$i++){
+
+		$data = array();
+		$data['e_uid'] = $uid;
+		$data['e_gid'] = $_POST['gid'];
+		$data['e_price'] = $goods['g_price'];
+		$data['e_use'] = 0;
+		$data['e_create'] = time();
+		$data['e_usetime'] = 0;
+		//判断是有链接劵还是无链接劵
+		if( empty($goods['g_url']) ){
+			//写入记录
+			//拉取劵的详细信息
+			$grab = A('Admin/Api','Event');
 			$code = $grab->getCouponCode($goods['g_couponid']);
 			if(!$code){
 				$this->ajaxReturn(['msg'=>'劵不足!','res'=>3,'data'=>false]);
 			}
-			$data[$i] = [
-				'e_uid' => $uid,
-				'e_gid' => $_POST['gid'],
-				'e_price' => $goods['g_price'],
-				'e_use' => 0,
-				'e_create' => time(),
-				'e_usetime' => 0,
-				'e_password' => $code['password'],
-				'e_link' => $code['link'],
-				'e_code' => $code['code'],
-			];
+			$data['e_password'] = $code['password'];
+			$data['e_link'] = $code['link'];
+			$data['e_code'] = $code['code'];
+		}else{
+			$data['e_password'] = '';
+			$data['e_link'] = $goods['g_url'];
+			$data['e_code'] = '';
 		}
-		$res = M('exchange')->addAll($data);
+
+		$res = M('exchange')->add($data);
 		if(!$res){
 			$this->ajaxReturn(['msg'=>'网络超时!','res'=>-1,'data'=>false]);
 		}
@@ -166,7 +172,7 @@ class IndexController extends CommonController {
 //		$user = M('user')->where(['u_id'=>session('3146_uid')])->find();
 		$list = M('award')->order('id asc')->select();
 
-		//是否有资格抽奖
+		//是否有资格抽奖 一周只能抽一次
 		$last = M('log')->where(['l_uid'=>session('3146_uid')])->order('l_updated desc')->limit(1)->find();
 		$week = date('W',$last['l_updated']);
 		$now = date('W',time());
@@ -210,23 +216,29 @@ class IndexController extends CommonController {
 			$this->ajaxReturn(['msg'=>'未中奖!','res'=>1,'data'=>true,'id'=>0]);
 		}
 		M('award')->where(['id'=>$award['id']])->setDec('num',1);
-		$grab = A('Admin/Api','Event');
-		$code = $grab->getCouponCode($award['awardid']);
-		if(!$code){
-			$this->ajaxReturn(['msg'=>'未中奖!','res'=>1,'data'=>true,'id'=>0]);
+
+		$data = array();
+		$data['e_uid'] = $uid;
+		$data['awardid'] = $award['id'];
+		$data['awardname'] = $award['awardname'];
+		$data['got'] = 0;
+		$data['onlyKey'] = 0;
+		$data['updated'] =  time();
+		$data['gid'] =  0;
+		if( empty($award['awardurl'] )){
+			$grab = A('Admin/Api','Event');
+			$code = $grab->getCouponCode($award['awardid']);
+			if(!$code){
+				$this->ajaxReturn(['msg'=>'未中奖!','res'=>1,'data'=>true,'id'=>0]);
+			}
+			$data['e_password'] =$code['password'];
+			$data['e_link'] =$code['link'];
+			$data['e_code'] =$code['code'];
+		}else{
+			$data['e_password'] = '';
+			$data['e_link'] = $award['awardurl'];
+			$data['e_code'] = '';
 		}
-		$data = [
-			'uid' => $uid,
-			'awardid' => $award['id'],
-			'awardname' => $award['awardname'],
-			'got' => 0,
-			'onlyKey' => 0,
-			'updated' => time(),
-			'gid' => 0,
-			'e_password' => $code['password'],
-			'e_link' => $code['link'],
-			'e_code' => $code['code'],
-		];
 		$res = M('weinner')->add($data);
 		if($res){
 			$this->ajaxReturn(['msg'=>'恭喜!','res'=>1,'data'=>true,'desc'=>$award['desc'],'id'=>$award['id'],'awardname'=>$award['awardname']]);
