@@ -218,7 +218,7 @@ class IndexController extends CommonController {
 		M('award')->where(['id'=>$award['id']])->setDec('num',1);
 
 		$data = array();
-		$data['e_uid'] = $uid;
+		$data['uid'] = $uid;
 		$data['awardid'] = $award['id'];
 		$data['awardname'] = $award['awardname'];
 		$data['got'] = 0;
