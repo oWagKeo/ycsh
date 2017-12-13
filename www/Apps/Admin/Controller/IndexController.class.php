@@ -26,11 +26,11 @@ class IndexController extends CommonController {
 			$this->error('两次密码输入不一样','',1);
 		}
 		$map = ['user_id' => session('cdlchd_adminid'),'password' => sha1($old)];
-		$ck = M('admin_user')->where($map)->find();
+		$ck = M('admin')->where($map)->find();
 		if(!$ck){
 			$this->error('密码错误','',1);
 		}
-		$res = M('admin_user')->where('user_id ='.session('cdlchd_adminid'))->save(['password' => sha1($new)]);
+		$res = M('admin')->where('user_id ='.session('cdlchd_adminid'))->save(['password' => sha1($new)]);
 		$this->admin_log('修改密码');
 		if($res){
 			$this->error('修改成功','index',1);
